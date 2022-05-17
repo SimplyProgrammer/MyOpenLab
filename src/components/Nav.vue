@@ -22,7 +22,7 @@
 					</li>
 				</ul>
 
-				<button class="btn btn-primary" @click="onBtnClicked()">Pridajte sa k nám</button>
+				<button class="btn btn-primary" @click="onBtnClicked()">{{btnText}}</button>
 			</div>
 		</div>
 	</nav>
@@ -33,7 +33,7 @@
 				<a class="nav-link my-2" :href="item.href">{{item.name}}</a>
 				<a class="nav-link my-2" v-for="dropdownOption in item.dropdowns" :key="dropdownOption"  :href="dropdownOption.href">{{dropdownOption.name}}</a>
 			</div>
-			<button class="btn-side my-2 btn btn-primary" @click="onBtnClicked()">Pridajte sa k nám</button>
+			<button class="btn-big my-2 btn btn-primary" @click="onBtnClicked()">{{btnText}}</button>
 			<br>
 			<slot name="sideMenu"></slot>
 		</div>
@@ -61,6 +61,10 @@ export default {
 		onBtnClicked: {
 			type: Function,
 			default: () => {}
+		},
+
+		btnText: {
+			type: String,
 		}
 	},
 }
@@ -73,24 +77,11 @@ nav {
 	font-weight: 600;
 }
 
-.btn-primary {
-	padding: 12px 20px;
-	font-size: 14px;
-	font-weight: 500;
-	border-radius: 6px;
-}
-
 .nav-link {
 	color: #1a232f !important;
 }
 
 .nav-link:hover, .dropdown-item:hover {
 	color: #0d6efd !important;
-}
-
-.btn-side {
-	font-weight: bold;
-	width: 80%;
-	height: 60px
 }
 </style>

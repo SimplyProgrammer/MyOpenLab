@@ -9,6 +9,28 @@ html {
 	overflow-x: hidden;
 }
 
+
+.bg-primary-lighter {
+	background-color: rgb(var(--bs-primary-rgb), 0.14);
+}
+
+.btn-primary {
+	padding: 12px 20px;
+	font-size: 14px;
+	font-weight: 500;
+	border-radius: 6px;
+}
+
+.btn-big {
+	font-weight: bold;
+	width: 80%;
+	height: 60px
+}
+
+.card-text, .fs-14px {
+	font-size: 14px;
+}
+
 .navSideMenu {
 	bottom: 100px;
 
@@ -32,6 +54,7 @@ html {
 		color: #4e5053;
 	}
 }
+
 
 .fade-enter-from {
 	opacity: 0;

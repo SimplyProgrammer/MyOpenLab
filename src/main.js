@@ -38,6 +38,7 @@ app.mixin({
 					{name: "Moderná škola", href: "/moderna-skola"},
 				],
 
+				btnText: "Pridajte sa k nám",
 				onBtnClicked: () => this.$router.push("/openlaby")
 			}
 		}
