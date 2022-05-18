@@ -17,6 +17,11 @@ app.mixin({
 		Nav, SiteHeader
 	},
 
+	methods: {
+		hostOf: (url) => new URL(url).host,
+		gotoSite: (href) => location.href = href
+	},
+
 	data() {
 		return {
 			nav: {

@@ -22,8 +22,8 @@
 					</h1>
 					<p class="text-white mt-4 me-4">Realizujeme odborné vzdelávanie zamerané na IT pre štátne školy ako nový štandard formálneho vzdelávania</p>
 				</div>
-				<div class="col-lg-6 img-wrapper d-none d-md-block">
-					<img src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/main-home.png" alt="main img">
+				<div class="col-lg-6 d-none d-md-flex">
+					<img class="img-fluid" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/main-home.png" alt="main img">
 				</div>
 				<img class="position-absolute top-0 start-0 w-100 h-100 d-md-none opacity-25" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/main-home.png" alt="main img bg">
 			</div>
@@ -85,14 +85,7 @@
 					</h1>
 				</div>
 				<div class="col-lg-8 card-group">
-					<div v-for="card in labsCards" :key="card" class="card border-0 rounded-3 me-3" @click="$router.push(card.href)">
-						<div class="card-body px-lg-5 pb-4">
-							<h5 class="card-title"><b class="fw-bold">{{card.lab}}</b>Lab</h5>
-							<p class="card-text text-secondary">{{card.text}}</p>
-							<img class="position-absolute" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right.svg" alt="arrow">
-							<img class="position-absolute" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right-blue.svg" alt="arrow">
-						</div>
-					</div>
+					<LinkCard v-for="card in labsCards" :key="card" v-bind="card"/>
 				</div>
 			</div>
 		</div>
@@ -117,7 +110,7 @@
 							</h6>
 							<div class="card-title d-flex justify-content-between align-items-end mt-4">
 								<span class="fw-bold me-4">{{school.name}}</span>
-								<a class="text-primary fw-bold text-decoration-none" :href="school.href">{{host(school.href)}}</a>
+								<a class="text-primary fw-bold text-decoration-none" :href="school.href">{{hostOf(school.href)}}</a>
 							</div>
 						</div>
 					</div>
@@ -126,29 +119,60 @@
 		</div>
 	</section>
 
-	<section id="want" class="py-5 bg-primary-lighter">
-		<div class="container py-5">
+	<section id="want" class="bg-primary-lighter pt-5">
+		<div class="container">
 			<div class="row">
-				<div class="col-12 col-lg-5">
+				<div class="col-12 col-lg-5 py-5">
 					<h1 class="fw-bold">Chceš ísť študovať odbor
 						<br>
 						<span class="fw-light">kompletne zameraný na IT?</span>
 					</h1>
 					<h5 class="fw-bold mt-5 mb-3">Programovanie digitálnych technológií</h5>
 					<p class="text-secondary">Čaká ťa tvorba aplikácií a hier, inovatívne myslenie, práca na reálnych projektoch. To všetko v spolupráci s tech odborníkmi z praxe, ktorí budú študentov a študentky na ich ceste sprevádzať a podporovať.</p>
-					<p class="text-secondary">Staň sa súčasťou tohto inovatívneho študijného programu aj ty!</p>
-					<button class="btn btn-big w-50 btn-primary mt-4">Chcem vedieť viac</button>
+					<p class="text-secondary pt-2">Staň sa súčasťou tohto inovatívneho študijného programu aj ty!</p>
+					<button class="btn btn-big w-50 btn-primary mt-4" @click="gotoSite('https://pdt.openlab.sk/')">Chcem vedieť viac</button>
 				</div>
-				<div class="col-lg-7">
-					Hi
+				<div class="col-lg-7 d-none d-lg-flex align-items-end">
+					<img class="img-fluid" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/students.png" alt="img">
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="join" class="py-5">
+		<div class="container pt-5">
+			<div class="text-center pt-5 mb-5">
+				<h1 class="fw-light">Pridajte sa k nám
+					<br>
+					<span class="fw-bold">My všetci sme OpenLab…</span>
+				</h1>
+			</div>
+			<div class="card-group">
+				<LinkCard v-for="card in joinCards" :key="card" v-bind="card"/>
+			</div>
+		</div>
+	</section>
+
+	<section id="studentProjects" class="py-5">
+		<div class="container py-5">
+			<div class="text-center">
+				<h1 class="fw-light">Pozrite si
+					<span class="fw-bold">študentské projekty</span>
+				</h1>
+				<p class="text-secondary mt-5">Stredoškoláci v OpenLaboch pracujú na reálnych projektoch v spolupráci s firmami pričom získavajú praktické zručnosti a osvojujú si prístup, ktorým neskôr posunú svet technológií a celú spoločnosť vpred.</p>
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
+import LinkCard from "@/components/LinkCard.vue";
+
 export default {
+	components: {
+		LinkCard
+	},
+
 	data() {
 		return {
 			whyCards: [
@@ -177,9 +201,9 @@ export default {
 			],
 
 			labsCards: [
-				{lab: "Hybrid", text: "Študenti sa učia vyvíjať hybridné aplikácie v HTML, PHP, CSS, JavaScript, Ionicu, Vue a OctoberCMS.", href: "/hybridlab"},
-				{lab: "Games", text: "Študenti vyvíjajú mobilné hry v Unity a GDevelop, učia sa tvoriť 2D grafiku v programe Piskel, 3D grafiku v programe Blender a herný dizajn.", href: "/gameslab"},
-				{lab: "Apps", text: "Študenti sa učia vyvíjať mobilné aplikácie v C# a Xamarin.forms a webové aplikácie v Java a Angular JS.", href: "/appslab"}
+				{title: "<b>Hybrid</b>Lab", text: "Študenti sa učia vyvíjať hybridné aplikácie v HTML, PHP, CSS, JavaScript, Ionicu, Vue a OctoberCMS.", href: "/hybridlab"},
+				{title: "<b>Games</b>Lab", text: "Študenti vyvíjajú mobilné hry v Unity a GDevelop, učia sa tvoriť 2D grafiku v programe Piskel, 3D grafiku v programe Blender a herný dizajn.", href: "/gameslab"},
+				{title: "<b>Apps</b>Lab", text: "Študenti sa učia vyvíjať mobilné aplikácie v C# a Xamarin.forms a webové aplikácie v Java a Angular JS.", href: "/appslab"}
 			],
 
 			schools: [
@@ -195,12 +219,16 @@ export default {
 					imgSrc: "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/school2.png", 
 					href: "http://www.spsknm.sk/ssknm/"
 				}
-			]
-		}
-	},
+			],
 
-	methods: {
-		host: (url) => new URL(url).host
+			joinCards: [
+				{title: "<b>Labmastri</b>", text: "Odborníci z praxe, ktorí odovzdávajú študentom svoj know-how v roli mentora 5 hodín týždenne celý školský rok."},
+				{title: "<b>Firmy</b>", text: "Technologické firmy sú garantmi obsahu jednotlivých labov, spolupracujú so študentmi na projektoch a v rámci študentských stáží."},
+				{title: "<b>Školy</b>", text: "Stredné odborné školy zamerané na digitálne technológie v jednotlivých regiónoch inovujú svoje technologické vzdelávanie."},
+				{title: "<b>Študenti</b>", text: "Stredoškoláci so záujmom o najnovšie technológie a silnou vnútornou motiváciou učiť sa nové veci a rozvíjať svoje schopnosti."}
+			]
+			
+		}
 	}
 }
 </script>
@@ -209,19 +237,6 @@ export default {
 #mainVisual {
 	.text {
 		z-index: 1;
-	}
-
-	.img-wrapper {
-		// position: relative;
-		height: 440px !important;
-		z-index: 1;
-
-		img {
-			// position: absolute;
-			// left: 10%;
-			width: 100%;
-			height: 100%;
-		}
 	}
 
 	.shape {
@@ -273,28 +288,6 @@ export default {
 
 			@media (max-width: 767.98px) {
 				font-size: 50px;
-			}
-		}
-	}
-}
-
-#labs {
-	.card {
-		transition: 0.4s;
-
-		&:hover {
-			box-shadow: 0px 0px 22px 0px rgba(180, 180, 180, 0.4);
-
-			img.position-absolute:nth-of-type(2) {
-				display: block;
-			}
-		}
-
-		img.position-absolute {
-			bottom: 16px;
-
-			&:nth-of-type(2) {
-				display: none;
 			}
 		}
 	}
