@@ -254,7 +254,7 @@
 	<section id="modernSchool" class="py-5">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 pe-5 order-2">
+				<div class="col-lg-6 pe-5 order-2 order-lg-0">
 					<h1 class="fw-light mb-5 m-lg-0">Nie je moderná škola
 						<br>
 						<span class="fw-bold">ako moderná škola</span>
