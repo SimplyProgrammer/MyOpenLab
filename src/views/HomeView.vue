@@ -16,7 +16,7 @@
 		<div class="container align-items-center">
 			<div class="row">
 				<div class="text col-lg-6 my-5 py-5">
-					<h1 class="header text-white fw-light">Inštitút stredoškolského odborného vzdelávania
+					<h1 class="text-white fw-light">Inštitút stredoškolského odborného vzdelávania
 						<br>
 						<span class="fw-bold">zameraný na IT &amp; AI</span>
 					</h1>
@@ -38,9 +38,7 @@
 					<h1 class="fw-light mb-5">Prečo 
 						<span class="fw-bold">OpenLab?</span>
 					</h1>
-					<p class="mx-5 mb-5 text-secondary">
-						V OpenLabe študentov učíme najnovšie technológie. Zároveň im dávame veľkú slobodu, pričom ich vedieme k zodpovednosti a samostatnosti, učíme ich princípy partnerského prístupu, pracovať v tíme, trénujeme ich schopnosti sebareflexie a podnecujeme ich kreativitu. Takto študentov pripravujeme osobnostne aj tech zručnosťami na veľké veci, ktoré môžu v budúcnosti tvoriť.
-					</p>
+					<p class="mx-5 mb-5 text-secondary">V OpenLabe študentov učíme najnovšie technológie. Zároveň im dávame veľkú slobodu, pričom ich vedieme k zodpovednosti a samostatnosti, učíme ich princípy partnerského prístupu, pracovať v tíme, trénujeme ich schopnosti sebareflexie a podnecujeme ich kreativitu. Takto študentov pripravujeme osobnostne aj tech zručnosťami na veľké veci, ktoré môžu v budúcnosti tvoriť.</p>
 				</div>
 				<div v-for="card in whyCards" :key="card" class="col-md-4 col-lg-3 pt-5">
 					<div class="card border-0 text-md-start">
@@ -57,7 +55,7 @@
 
 	<section id="vision" class="py-5">
 		<div class="container">
-			<div class="row align-items-center">
+			<div class="row">
 				<div class="col-lg-5 my-5">
 					<h1 class="fw-light mb-5">Naša vízia
 						<b class="fw-bold">v OpenLabe</b>
@@ -154,12 +152,124 @@
 	</section>
 
 	<section id="studentProjects" class="py-5">
-		<div class="container py-5">
-			<div class="text-center">
+		<div class="container border-bottom">
+			<div class="text-center py-4">
 				<h1 class="fw-light">Pozrite si
 					<span class="fw-bold">študentské projekty</span>
 				</h1>
-				<p class="text-secondary mt-5">Stredoškoláci v OpenLaboch pracujú na reálnych projektoch v spolupráci s firmami pričom získavajú praktické zručnosti a osvojujú si prístup, ktorým neskôr posunú svet technológií a celú spoločnosť vpred.</p>
+				<p class="text-secondary m-5 px-5">Stredoškoláci v OpenLaboch pracujú na reálnych projektoch v spolupráci s firmami pričom získavajú praktické zručnosti a osvojujú si prístup, ktorým neskôr posunú svet technológií a celú spoločnosť vpred.</p>
+			</div>
+			<p class="fw-light mt-3 mb-5 position-relative">Projekty študentov v
+				<span class="fw-bold">OpenLabe</span>
+			</p>
+			<a class="text-decoration-none text-primary d-flex mb-5" href="https://www.youtube.com/channel/UCinIL-0-qCLU6zE5fo1SPNw">Pozrieť si všetky projekty
+				<img class="ms-2" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right-blue.svg" alt="hover arrow">
+			</a>
+		</div>
+	</section>
+
+	<section id="special" class="py-5">
+		<div class="container border-bottom py-5">
+			<div class="row justify-content-center">
+				<div class="col-12 text-center mb-4">
+					<h1 class="fw-light">Čím sme
+						<span class="fw-bold">výnimoční?</span>
+					</h1>
+				</div>
+				<div v-for="card in specialsCards" :key="card" class="col-lg-4 pt-5 px-4">
+					<div class="card border-0 text-md-start">
+						<img class="mx-auto ms-0" :src="card.imgSrc" alt="select" width="45">
+						<div class="card-body px-0 pt-3">
+							<h5 class="card-title fw-bold my-2 mb-3">{{card.title}}</h5>
+							<p class="card-text text-secondary">{{card.text}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="meetUs" class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-center">
+					<h1 class="fw-bold mb-5">Spoznaj nás</h1>
+				</div>
+				<div v-for="card in usCards" :key="card" class="col-6 col-lg-3 mb-4">
+					<div class="card border-0">
+						<img class="rounded" :src="card.imgSrc" alt="profile pic">
+						<div class="card-body px-0">
+							<h6 class="card-subtitle text-secondary fs-14px">{{card.subtitle}}</h6>
+							<h5 class="card-title fw-bold m-0 mt-3">{{card.title}}</h5>
+							<p class="card-text text-secondary">{{card.text}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="supportUs" class="py-5">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<img class="img-fluid mb-2" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/people.png" alt="img">
+				</div>
+				<div class="col-lg-6">
+					<h2 class="fw-bold mb-4">Podporte nás</h2>
+					<p class="text-secondary mb-5">OpenLab postupne rozširujeme ako neziskový vzdelávací projekt s cieľom otvoriť OpenLab-y zamerané na rôzne IT technológie na čo najväčší počet škôl vo všetkých slovenských regiónoch. Veríme, že OpenLab bude natoľko úspešný, že sa stane štandardom vzdelávania na Slovensku!</p>
+					<a class="text-decoration-none text-primary d-flex" href="https://www.youtube.com/channel/UCinIL-0-qCLU6zE5fo1SPNw">Chcem podporiť
+						<img class="ms-2" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right-blue.svg" alt="hover arrow">
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="whoBehind" class="py-5">
+		<div class="container py-4">
+			<div class="row align-items-center">
+				<div class="col-lg-5">
+					<h1 class="fw-light mb-5 m-lg-0">Kto stojí
+						<br>
+						<span class="fw-bold">za Openlabom?</span>
+					</h1>
+				</div>
+				<div class="col-lg-7 d-flex flex-wrap justify-content-evenly">
+					<img v-for="img in whoImgs" :key="img" class="img-fluid my-3 me-5" :src="img" :alt="img">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="instagram" class="py-5 my-5 row">
+		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
+		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
+		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
+		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
+		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
+		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
+	</section>
+
+	<section id="modernSchool" class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 pe-5 order-2">
+					<h1 class="fw-light mb-5 m-lg-0">Nie je moderná škola
+						<br>
+						<span class="fw-bold">ako moderná škola</span>
+					</h1>
+					<p class="text-secondary mt-3 mb-4">Podcast Moderná škola vznikol v spolupráci s Romanom ”Yablkom” Hraškom, kde našim zámerom je rozobrať svet štandardného vzdelávania a spôsob ako môže fungovať moderné vzdelávanie v technológiach.</p>
+					<div class="d-flex mb-4">
+						<a v-for="plat in podcastPlatforms" :key="plat" :href="plat.href">
+							<img class="me-3" :src="plat.imgSrc">
+						</a>
+					</div>
+					<button class="btn btn-primary btn-big w-50" @click="$router.push('/moderna-skola')">Moderná škola</button>
+				</div>
+				<div class="col-lg-6">
+					<img class="img-fluid" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/modern.png" alt="modern school">
+				</div>
 			</div>
 		</div>
 	</section>
@@ -167,6 +277,8 @@
 
 <script>
 import LinkCard from "@/components/LinkCard.vue";
+
+const origAssets = "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/";
 
 export default {
 	components: {
@@ -176,21 +288,9 @@ export default {
 	data() {
 		return {
 			whyCards: [
-				{
-					imgSrc: "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/select.svg",
-					title: "Celospoločenský rozvoj",
-					text: "Osnovy aj učebné materiály pre všetky tech oblasti sú open source."
-				},
-				{
-					imgSrc: "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/support.svg",
-					title: "Učenie praxou",
-					text: "Študentov vedieme k tímovému riešeniu problémov."
-				},
-				{
-					imgSrc: "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/intership.svg",
-					title: "Rozvoj talentu",
-					text: "Vytvárame šikovné tímy schopné riešiť veľké problémy."
-				}
+				{title: "Celospoločenský rozvoj", text: "Osnovy aj učebné materiály pre všetky tech oblasti sú open source.", imgSrc: origAssets + "images/select.svg"},
+				{title: "Učenie praxou", text: "Študentov vedieme k tímovému riešeniu problémov.", imgSrc: origAssets + "images/support.svg"},
+				{title: "Rozvoj talentu", text: "Vytvárame šikovné tímy schopné riešiť veľké problémy.", imgSrc: origAssets + "images/intership.svg"}
 			],
 
 			visionCells: [
@@ -210,13 +310,13 @@ export default {
 				{
 					name: "Stredná Priemyselná Škola Elektrotechnická", 
 					loc: "Hálova 16, Bratislava", 
-					imgSrc: "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/school1.png", 
+					imgSrc: origAssets + "/images/school1.png", 
 					href: "https://spsehalova.sk/"
 				},
 				{
 					name: "Stredná Priemyselná Škola Informačných Technológií", 
 					loc: "Nábrežná 1325, Kysucké Nové Mesto", 
-					imgSrc: "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/school2.png", 
+					imgSrc: origAssets + "images/school2.png", 
 					href: "http://www.spsknm.sk/ssknm/"
 				}
 			],
@@ -226,8 +326,35 @@ export default {
 				{title: "<b>Firmy</b>", text: "Technologické firmy sú garantmi obsahu jednotlivých labov, spolupracujú so študentmi na projektoch a v rámci študentských stáží."},
 				{title: "<b>Školy</b>", text: "Stredné odborné školy zamerané na digitálne technológie v jednotlivých regiónoch inovujú svoje technologické vzdelávanie."},
 				{title: "<b>Študenti</b>", text: "Stredoškoláci so záujmom o najnovšie technológie a silnou vnútornou motiváciou učiť sa nové veci a rozvíjať svoje schopnosti."}
-			]
+			],
 			
+			specialsCards: [
+				{title: "Partnerstvo", text: "Dáva študentom slobodu, ktorú vyvažujú zodpovednosťou. Spolupráca LabMastra a študentov je v partnerskej rovine.", imgSrc: origAssets + "images/special1.svg"},
+				{title: "LabMaster", text: "Je mentor s expertízou v danej oblasti, ktorý nastavuje rámce a sprevádza študentov pri dosahovaní míľnikov.", imgSrc: origAssets + "images/special2.svg"},
+				{title: "Učebný blok", text: "Je základný dokument, z ktorého sa študenti učia. Obsahuje všetky vzdelávacie podklady pre konkrétnu fázu.", imgSrc: origAssets + "images/special3.svg"},
+				{title: "Problem driven", text: "Je princíp učenia, vďaka ktorému sú študenti vedení ku kritickému mysleniu s cieľom vyriešiť konkrétne problémy.", imgSrc: origAssets + "images/special4.svg"},
+				{title: "Project driven", text: "Po teoretickej fáze sú študenti rozdelení do tímov, v ktorých v spolupráci s firmami tvoria konkrétny projekt pre zákazníka.", imgSrc: origAssets + "images/special5.svg"},
+				{title: "Samoštúdium", text: "Študenti trávia 80% času samoštúdiom a sú vedení k tímovej spolupráci. 20% teórie slúži iba ako odrazový mostík.", imgSrc: origAssets + "images/special6.svg"}
+			],
+
+			usCards: [
+				{title: "Grigor Ayrumyan", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Co-founder & Executive Director", imgSrc: origAssets + "images/grigor-ayrumyan.jpg"},
+				{title: "Slavomír Terezka", subtitle: "BOARD MEMBER", text: "Co-founder", imgSrc: origAssets + "images/slavomir-terezka.jpg"},
+				{title: "Roman Sekerka", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Co-founder & Tech Garant pre HybridLab a AppsLab", imgSrc: origAssets + "images/roman-sekerka.jpg"},
+				{title: "Ján Kožlej", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Tech Garant pre GamesLab", imgSrc: origAssets + "images/jan-kozlej.jpg"},
+				{title: "Veronika Radobická", subtitle: "EXECUTIVE TEAM", text: "Marketing Manager", imgSrc: origAssets + "images/veronika-radobicka.jpg"},
+				{title: "Dominika Krullová", subtitle: "EXECUTIVE TEAM", text: "Project Manager", imgSrc: origAssets + "images/dominika-krullova.jpg"},
+				{title: "Viktória Jakubovičová", subtitle: "EXECUTIVE TEAM", text: "Relationship Manager", imgSrc: origAssets + "images/viktoria-jakubovicova.jpg"},
+			],
+
+			whoImgs: [origAssets + "images/wezeo.svg", origAssets + "images/power.svg", origAssets + "images/siemens.svg", origAssets + "images/spsit.svg", origAssets + "images/spse.svg", origAssets + "images/hemisfera.svg"],
+
+			podcastPlatforms: [
+				{href: "https://www.youtube.com/c/Modern%C3%A1%C5%A1kola", imgSrc: origAssets + "images/youtube-color.svg"}, 
+				{href: "https://open.spotify.com/show/7x8hnF8aX7LYbPsU155dJs", imgSrc: origAssets + "images/spotify.svg"}, 
+				{hred: "https://podcasts.apple.com/sk/podcast/modern%C3%A1-%C5%A1kola/id1594689894", imgSrc: origAssets + "images/podcast.svg"}, 
+				{href: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL21vZGVybmFza29sYS9mZWVkLnhtbA", imgSrc: origAssets + "images/google.svg"}
+			]
 		}
 	}
 }
@@ -257,22 +384,22 @@ export default {
 		width: 234px;
 		height: 184px;
 
-		&:nth-child(1) {
+		&:nth-child(1n) {
 			color: #5b94d7;
 			background-color: rgba(221, 236, 251, 0.4);
 		}
 
-		&:nth-child(2) {
+		&:nth-child(2n) {
 			color: #5cc19a;
 			background-color: rgba(156, 238, 204, 0.4);
 		}
 
-		&:nth-child(3) {
+		&:nth-child(3n) {
 			color: #dbca68;
 			background-color: rgba(238, 226, 156, 0.4);
 		}
 
-		&:nth-child(4) {
+		&:nth-child(4n) {
 			color: #b95e73;
 			background-color: rgba(238, 156, 156, 0.4);
 		}
@@ -289,6 +416,29 @@ export default {
 			@media (max-width: 767.98px) {
 				font-size: 50px;
 			}
+		}
+	}
+}
+
+section .container.border-bottom {
+	border-color: #d7eaff !important;
+}
+
+#studentProjects {
+	p.position-relative::before {
+		content: "";
+		width: 50px;
+		height: 1px;
+		background: gray;
+		position: absolute;
+		bottom:-25px;
+	}
+}
+
+#special {
+	@media (min-width: 992px) {
+		.col-lg-4 {
+			max-width: 28%;
 		}
 	}
 }
