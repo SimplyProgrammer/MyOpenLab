@@ -1,7 +1,7 @@
 <template>
-	<SiteHeader />
+	<Site-header />
 
-	<Nav v-bind="nav">
+	<Nav-bar v-bind="nav">
 		<template v-slot:sideMenu>
 			<div class="navSideMenu position-fixed">
 				<p class="side-header-text mx-5">Ak máš záujem študovať spolu s nami, sme tu pre teba…</p>
@@ -10,7 +10,7 @@
 				</a>
 			</div>
 		</template>
-	</Nav>
+	</Nav-bar>
 	
 	<section id="mainVisual" class="bg-primary position-relative mb-4">
 		<div class="container align-items-center">
@@ -27,8 +27,8 @@
 				</div>
 				<img class="position-absolute top-0 start-0 w-100 h-100 d-md-none opacity-25" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/main-home.png" alt="main img bg">
 			</div>
-			<img class="overflow-hidden shape position-absolute d-none d-md-block" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/o_letter.png" alt="shape">
 		</div>
+		<img class="overflow-hidden shape-right position-absolute d-none d-md-block" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/o_letter.png" alt="shape">
 	</section>
 
 	<section id="why" class="py-5">
@@ -83,13 +83,13 @@
 					</h1>
 				</div>
 				<div class="col-lg-8 card-group">
-					<LinkCard v-for="card in labsCards" :key="card" v-bind="card"/>
+					<Link-card v-for="card in labsCards" :key="card" v-bind="card"/>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="schools" class="py-5">
+	<section id="schools" class="py-5 position-relative">
 		<div class="container p-2">
 			<div class="row justify-content-evenly">
 				<div class="col-lg-12 text-center">
@@ -115,6 +115,7 @@
 				</div>
 			</div>
 		</div>
+		<img class="overflow-hidden shape-right position-absolute d-none d-md-block" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/p_letter.png" alt="shape">
 	</section>
 
 	<section id="want" class="bg-primary-lighter pt-5">
@@ -146,12 +147,12 @@
 				</h1>
 			</div>
 			<div class="card-group">
-				<LinkCard v-for="card in joinCards" :key="card" v-bind="card"/>
+				<Link-card v-for="card in joinCards" :key="card" v-bind="card"/>
 			</div>
 		</div>
 	</section>
 
-	<section id="studentProjects" class="py-5">
+	<section id="studentProjects" class="py-5 position-relative">
 		<div class="container border-bottom">
 			<div class="text-center py-4">
 				<h1 class="fw-light">Pozrite si
@@ -166,6 +167,7 @@
 				<img class="ms-2" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right-blue.svg" alt="hover arrow">
 			</a>
 		</div>
+		<img class="overflow-hidden shape-left position-absolute d-none d-md-block" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/a_letter.png" alt="shape">
 	</section>
 
 	<section id="special" class="py-5">
@@ -242,18 +244,13 @@
 		</div>
 	</section>
 
-	<section id="instagram" class="py-5 my-5 row">
-		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
-		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
-		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
-		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
-		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
-		<img class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg" alt="">
+	<section id="instagram" class="py-5 my-5 row flex-wrap">
+		<img v-for="i in 6" :key="i" class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg">
 	</section>
 
 	<section id="modernSchool" class="py-5">
 		<div class="container">
-			<div class="row">
+			<div class="row align-items-center">
 				<div class="col-lg-6 pe-5 order-2 order-lg-0">
 					<h1 class="fw-light mb-5 m-lg-0">Nie je moderná škola
 						<br>
@@ -268,11 +265,45 @@
 					<button class="btn btn-primary btn-big w-50" @click="$router.push('/moderna-skola')">Moderná škola</button>
 				</div>
 				<div class="col-lg-6">
-					<img class="img-fluid" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/modern.png" alt="modern school">
+					<img class="img-fluid mb-5 mb-lg-0" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/modern.png" alt="modern school">
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<section id="supporters" class="py-5">
+		<div class="container py-4">
+			<h1 class="fw-light text-center mb-5">Pozrite si
+				<span class="fw-bold">študentské projekty</span>
+			</h1>
+			<div class="d-grid pt-4">
+				<div v-for="supp in supporters" :key="supp" class="d-flex justify-content-center align-items-center">
+					<img class="img-fluid mx-3" :src="supp">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="newsletter" class="py-5">
+		<div class="container p-5 mb-5 bg-primary-light rounded-3">
+			<div class="row align-items-center">
+				<div class="col-lg">
+					<h5 class="fw-light m-0 ps-lg-4">Prihláste sa do nášho newslettra a budete mať
+						<br>
+						<span class="fw-bold">čerstvé informácie o živote v OpenLabe.</span>
+					</h5>
+				</div>
+				<div class="col-lg">
+					<div class="position-relative mt-5 mt-lg-0">
+						<input class="bg-white border-0 w-100 rounded-3 px-3 " placeholder="Sem napíš tvoj e-mail" type="email">
+						<img class="position-absolute" role="button" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/send.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<Page-footer />
 </template>
 
 <script>
@@ -354,7 +385,9 @@ export default {
 				{href: "https://open.spotify.com/show/7x8hnF8aX7LYbPsU155dJs", imgSrc: origAssets + "images/spotify.svg"}, 
 				{hred: "https://podcasts.apple.com/sk/podcast/modern%C3%A1-%C5%A1kola/id1594689894", imgSrc: origAssets + "images/podcast.svg"}, 
 				{href: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL21vZGVybmFza29sYS9mZWVkLnhtbA", imgSrc: origAssets + "images/google.svg"}
-			]
+			],
+
+			supporters: [...new Array(10)].map((obj, i) => origAssets + "images/support" + ++i + ".svg"),
 		}
 	}
 }
@@ -364,18 +397,6 @@ export default {
 #mainVisual {
 	.text {
 		z-index: 1;
-	}
-
-	.shape {
-		width: 436px;
-		bottom: calc(-436px / 2);
-		right: calc(-436px / 2);
-
-		@media (max-width: 1199.98px) {
-			width: 218px;
-			bottom: calc(-218px / 2);
-			right: calc(-218px / 2);
-		}
 	}
 }
 
@@ -440,6 +461,34 @@ section .container.border-bottom {
 		.col-lg-4 {
 			max-width: 28%;
 		}
+	}
+}
+
+#supporters {
+	.d-grid {
+		grid-template-columns: repeat(5, 1fr);
+
+		@media (max-width: 992px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+#instagram {
+	img:hover {
+		filter: brightness(60%);
+	}
+}
+
+#newsletter {
+	input {
+		height: 40px;
+		outline: none;
+	}
+
+	img[role=button] {
+		top: 25%;
+		right: 25px;
 	}
 }
 </style>

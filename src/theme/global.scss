@@ -9,6 +9,9 @@ html {
 	overflow-x: hidden;
 }
 
+.bg-primary-light {
+	background-color: rgb(var(--bs-primary-rgb), 0.2);
+}
 
 .bg-primary-lighter {
 	background-color: rgb(var(--bs-primary-rgb), 0.14);
@@ -52,6 +55,30 @@ html {
 
 	&:hover {
 		color: #4e5053;
+	}
+}
+
+.shape-right {
+	width: 436px;
+	bottom: calc(-436px / 2);
+	right: calc(-436px / 2);
+
+	@media (max-width: 1199.98px) {
+		width: 218px;
+		bottom: calc(-218px / 2);
+		right: calc(-218px / 2);
+	}
+}
+
+.shape-left {
+	width: 436px;
+	bottom: calc(-436px / 2);
+	left: calc(-436px / 2);
+
+	@media (max-width: 1199.98px) {
+		width: 218px;
+		bottom: calc(-218px / 2);
+		left: calc(-218px / 2);
 	}
 }
 

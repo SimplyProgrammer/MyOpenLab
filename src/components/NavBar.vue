@@ -27,17 +27,17 @@
 		</div>
 	</nav>
 
-	<SideMenu ref="navSideMenu">
+	<Side-menu ref="navSideMenu">
 		<div class="text-center">
 			<div class="mx-5" v-for="item in items" :key="item">
 				<a class="nav-link my-2" :href="item.href">{{item.name}}</a>
 				<a class="nav-link my-2" v-for="dropdownOption in item.dropdowns" :key="dropdownOption"  :href="dropdownOption.href">{{dropdownOption.name}}</a>
 			</div>
-			<button class="btn btn-primary btn-big my-2 w-50" @click="onBtnClicked()">{{btnText}}</button>
+			<button class="btn btn-primary btn-big my-2 w-75" @click="onBtnClicked()">{{btnText}}</button>
 			<br>
 			<slot name="sideMenu"></slot>
 		</div>
-	</SideMenu>
+	</Side-menu>
 </template>
 
 <script>

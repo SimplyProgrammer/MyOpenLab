@@ -1,20 +1,20 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import './registerServiceWorker';
-import router from './router';
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
 import "bootstrap/dist/js/bootstrap.js";
 
 import "./theme/global.scss";
 
-import Nav from "@/components/Nav.vue";
+import NavBar from "@/components/NavBar.vue";
 import SiteHeader from "@/components/SiteHeader.vue";
+import PageFooter from "@/components/PageFooter.vue";
 
 const app = createApp(App).use(router);
 
 app.mixin({
 	components: {
-		Nav, SiteHeader
+		NavBar, SiteHeader, PageFooter
 	},
 
 	methods: {
@@ -53,5 +53,5 @@ app.mixin({
 router.isReady().then(() => {
 	//var secured = "s";
 	//app.config.globalProperties.beIp = decodeURIComponent("http" + secured + "%3A%2F%2F178.143.44.187%3A1089%2F");
-	app.mount('#app');
+	app.mount("#app");
 });

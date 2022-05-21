@@ -1,7 +1,7 @@
 <template>
-	<SiteHeader />
+	<Site-header />
 
-	<Nav v-bind="nav">
+	<Nav-bar v-bind="nav">
 		<template v-slot:sideMenu>
 			<div class="navSideMenu position-fixed">
 				<p class="side-header-text mx-5">Ak máš záujem študovať spolu s nami, sme tu pre teba…</p>
@@ -10,17 +10,17 @@
 				</a>
 			</div>
 		</template>
-	</Nav>
+	</Nav-bar>
 
 	Pre uc
+
+	<Page-footer />
 </template>
 
 <script>
 export default {
-
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
