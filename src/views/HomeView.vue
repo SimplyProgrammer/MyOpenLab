@@ -15,7 +15,7 @@
 	<section id="mainVisual" class="bg-primary position-relative mb-4">
 		<div class="container align-items-center">
 			<div class="row">
-				<div class="text col-lg-6 my-5 py-5">
+				<div class="col-lg-6 my-5 py-5">
 					<h1 class="text-white fw-light">Inštitút stredoškolského odborného vzdelávania
 						<br>
 						<span class="fw-bold">zameraný na IT &amp; AI</span>
@@ -99,7 +99,7 @@
 					</h1>
 				</div>
 				<div v-for="school in schools" :key="school" class="col-lg-5">
-					<div class="card border-0">
+					<div class="card border-0 bg-transparent">
 						<img :src="school.imgSrc" alt="school">
 						<div class="card-body mx-0 px-1 py-4">
 							<h6 class="card-subtitle text-secondary">
@@ -126,7 +126,7 @@
 						<br>
 						<span class="fw-light">kompletne zameraný na IT?</span>
 					</h1>
-					<h5 class="fw-bold mt-5 mb-3">Programovanie digitálnych technológií</h5>
+					<h5 class="fw-bold mt-5 mb-3 position-relative">Programovanie digitálnych technológií</h5>
 					<p class="text-secondary">Čaká ťa tvorba aplikácií a hier, inovatívne myslenie, práca na reálnych projektoch. To všetko v spolupráci s tech odborníkmi z praxe, ktorí budú študentov a študentky na ich ceste sprevádzať a podporovať.</p>
 					<p class="text-secondary pt-2">Staň sa súčasťou tohto inovatívneho študijného programu aj ty!</p>
 					<button class="btn btn-big w-50 btn-primary mt-4" @click="gotoSite('https://pdt.openlab.sk/')">Chcem vedieť viac</button>
@@ -394,10 +394,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#mainVisual {
-	.text {
-		z-index: 1;
-	}
+img:not(.position-absolute) {
+	z-index: 1;
+}
+
+:not(.bg-primary) > img.position-absolute {
+	z-index: -1;
 }
 
 #vision {

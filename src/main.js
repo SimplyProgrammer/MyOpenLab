@@ -34,7 +34,7 @@ app.mixin({
 						href: "/openlaby",
 						dropdowns: [
 							{name: "HybridLab", href: "/hybridlab"},
-							{name: "GamesLab",href: "/gameslab"},
+							{name: "GamesLab", href: "/gameslab"},
 							{name: "AppsLab", href: "/appslab"},
 						]
 					},
