@@ -1,4 +1,8 @@
-@import "bootstrap/dist/css/bootstrap.css";
+$blue: #3597ff;
+$secondary: #566b8d;
+$min-contrast-ratio: 2.99;
+
+@import "bootstrap/scss/bootstrap.scss";
 
 * {
 	font-family: 'SF Pro Display', sans-serif;
@@ -14,7 +18,7 @@ html {
 }
 
 .bg-primary-lighter {
-	background-color: rgb(var(--bs-primary-rgb), 0.14);
+	background-color: rgb(var(--bs-primary-rgb), 0.12);
 }
 
 .btn-primary {

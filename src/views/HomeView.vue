@@ -1,35 +1,24 @@
 <template>
 	<Site-header />
 
-	<Nav-bar v-bind="nav">
+	<MainNavbar v-bind="nav">
 		<template v-slot:sideMenu>
 			<div class="navSideMenu position-fixed">
 				<p class="side-header-text mx-5">Ak máš záujem študovať spolu s nami, sme tu pre teba…</p>
 				<a href="https://discord.com/invite/Y6xrdTvjFn" class="join-discord-btn mx-3 btn btn-sm rounded-pill d-flex justify-content-center align-items-center">OPENLAB COMMUNITY
-					<img class="ms-1" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/discord.svg" alt="discord">
+					<img class="ms-1" :src="origAssets + 'images/discord.svg'" alt="discord">
 				</a>
 			</div>
 		</template>
-	</Nav-bar>
-	
-	<section id="mainVisual" class="bg-primary position-relative mb-4">
-		<div class="container align-items-center">
-			<div class="row">
-				<div class="col-lg-6 my-5 py-5">
-					<h1 class="text-white fw-light">Inštitút stredoškolského odborného vzdelávania
-						<br>
-						<span class="fw-bold">zameraný na IT &amp; AI</span>
-					</h1>
-					<p class="text-white mt-4 me-4">Realizujeme odborné vzdelávanie zamerané na IT pre štátne školy ako nový štandard formálneho vzdelávania</p>
-				</div>
-				<div class="col-lg-6 d-none d-md-flex">
-					<img class="img-fluid" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/main-home.png" alt="main img">
-				</div>
-				<img class="position-absolute top-0 start-0 w-100 h-100 d-md-none opacity-25" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/main-home.png" alt="main img bg">
-			</div>
-		</div>
-		<img class="overflow-hidden shape-right position-absolute d-none d-md-block" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/o_letter.png" alt="shape">
-	</section>
+	</MainNavbar>
+
+	<Main-jumbotron class="bg-primary" :mainImg="origAssets + 'images/main-home.png'" :shape="origAssets + 'images/o_letter.png'">
+		<h1 class="text-white fw-light">Inštitút stredoškolského odborného vzdelávania
+			<br>
+			<span class="fw-bold">zameraný na IT &amp; AI</span>
+		</h1>
+		<p class="text-white mt-4 me-4">Realizujeme odborné vzdelávanie zamerané na IT pre štátne školy ako nový štandard formálneho vzdelávania</p>
+	</Main-jumbotron>
 
 	<section id="why" class="py-5">
 		<div class="container">
@@ -103,7 +92,7 @@
 						<img :src="school.imgSrc" alt="school">
 						<div class="card-body mx-0 px-1 py-4">
 							<h6 class="card-subtitle text-secondary">
-								<img src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/place.svg" alt="place">
+								<img :src="origAssets + 'images/place.svg'" alt="place">
 								{{school.loc}}
 							</h6>
 							<div class="card-title d-flex justify-content-between align-items-end mt-4">
@@ -115,7 +104,7 @@
 				</div>
 			</div>
 		</div>
-		<img class="overflow-hidden shape-right position-absolute d-none d-md-block" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/p_letter.png" alt="shape">
+		<img class="overflow-hidden shape-right position-absolute d-none d-md-block" :src="origAssets + 'images/p_letter.png'" alt="shape">
 	</section>
 
 	<section id="want" class="bg-primary-lighter pt-5">
@@ -132,7 +121,7 @@
 					<button class="btn btn-big w-50 btn-primary mt-4" @click="gotoSite('https://pdt.openlab.sk/')">Chcem vedieť viac</button>
 				</div>
 				<div class="col-lg-7 d-none d-lg-flex align-items-end">
-					<img class="img-fluid" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/students.png" alt="img">
+					<img class="img-fluid" :src="origAssets + 'images/students.png'" alt="img">
 				</div>
 			</div>
 		</div>
@@ -158,16 +147,16 @@
 				<h1 class="fw-light">Pozrite si
 					<span class="fw-bold">študentské projekty</span>
 				</h1>
-				<p class="text-secondary m-5 px-5">Stredoškoláci v OpenLaboch pracujú na reálnych projektoch v spolupráci s firmami pričom získavajú praktické zručnosti a osvojujú si prístup, ktorým neskôr posunú svet technológií a celú spoločnosť vpred.</p>
+				<p class="text-secondary m-5 px-0 px-lg-5">Stredoškoláci v OpenLaboch pracujú na reálnych projektoch v spolupráci s firmami pričom získavajú praktické zručnosti a osvojujú si prístup, ktorým neskôr posunú svet technológií a celú spoločnosť vpred.</p>
 			</div>
 			<p class="fw-light mt-3 mb-5 position-relative">Projekty študentov v
 				<span class="fw-bold">OpenLabe</span>
 			</p>
 			<a class="text-decoration-none text-primary d-flex mb-5" href="https://www.youtube.com/channel/UCinIL-0-qCLU6zE5fo1SPNw">Pozrieť si všetky projekty
-				<img class="ms-2" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right-blue.svg" alt="hover arrow">
+				<img class="ms-2" :src="origAssets + 'images/arrow-right-blue.svg'" alt="hover arrow">
 			</a>
 		</div>
-		<img class="overflow-hidden shape-left position-absolute d-none d-md-block" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/a_letter.png" alt="shape">
+		<img class="overflow-hidden shape-left position-absolute d-none d-md-block" :src="origAssets + 'images/a_letter.png'" alt="shape">
 	</section>
 
 	<section id="special" class="py-5">
@@ -215,13 +204,13 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6">
-					<img class="img-fluid mb-2" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/people.png" alt="img">
+					<img class="img-fluid mb-2" :src="origAssets + 'images/people.png'" alt="img">
 				</div>
 				<div class="col-lg-6">
 					<h2 class="fw-bold mb-4">Podporte nás</h2>
 					<p class="text-secondary mb-5">OpenLab postupne rozširujeme ako neziskový vzdelávací projekt s cieľom otvoriť OpenLab-y zamerané na rôzne IT technológie na čo najväčší počet škôl vo všetkých slovenských regiónoch. Veríme, že OpenLab bude natoľko úspešný, že sa stane štandardom vzdelávania na Slovensku!</p>
 					<a class="text-decoration-none text-primary d-flex" href="https://www.youtube.com/channel/UCinIL-0-qCLU6zE5fo1SPNw">Chcem podporiť
-						<img class="ms-2" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right-blue.svg" alt="hover arrow">
+						<img class="ms-2" :src="origAssets + 'images/arrow-right-blue.svg'" alt="hover arrow">
 					</a>
 				</div>
 			</div>
@@ -265,7 +254,7 @@
 					<button class="btn btn-primary btn-big w-50" @click="$router.push('/moderna-skola')">Moderná škola</button>
 				</div>
 				<div class="col-lg-6">
-					<img class="img-fluid mb-5 mb-lg-0" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/modern.png" alt="modern school">
+					<img class="img-fluid mb-5 mb-lg-0" :src="origAssets + 'images/modern.png'" alt="modern school">
 				</div>
 			</div>
 		</div>
@@ -296,14 +285,14 @@
 				<div class="col-lg">
 					<div class="position-relative mt-5 mt-lg-0">
 						<input class="bg-white border-0 w-100 rounded-3 px-3 " placeholder="Sem napíš tvoj e-mail" type="email">
-						<img class="position-absolute" role="button" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/send.svg">
+						<img class="position-absolute" role="button" :src="origAssets + 'images/send.svg'">
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<Page-footer />
+	<Page-footer v-bind="footer"/>
 </template>
 
 <script>
@@ -313,7 +302,7 @@ const origAssets = "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/as
 
 export default {
 	components: {
-		LinkCard
+		LinkCard,
 	},
 
 	data() {
@@ -396,10 +385,6 @@ export default {
 <style lang="scss" scoped>
 img:not(.position-absolute) {
 	z-index: 1;
-}
-
-:not(.bg-primary) > img.position-absolute {
-	z-index: -1;
 }
 
 #vision {

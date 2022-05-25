@@ -3,8 +3,8 @@
 		<div class="card-body px-lg-5 pb-4">
 			<h5 class="card-title" v-html="title" />
 			<p class="card-text text-secondary" v-html="text" />
-			<img class="position-absolute" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right.svg" alt="arrow">
-			<img class="position-absolute" src="https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/images/arrow-right-blue.svg" alt="hover arrow">
+			<img class="position-absolute" :src="origAssets + 'images/arrow-right.svg'" alt="arrow">
+			<img class="position-absolute" :src="origAssets + 'images/arrow-right-blue.svg'" alt="hover arrow">
 		</div>
 	</div>
 </template>
