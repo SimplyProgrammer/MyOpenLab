@@ -30,13 +30,7 @@
 					<p class="mx-5 mb-5 text-secondary">V OpenLabe študentov učíme najnovšie technológie. Zároveň im dávame veľkú slobodu, pričom ich vedieme k zodpovednosti a samostatnosti, učíme ich princípy partnerského prístupu, pracovať v tíme, trénujeme ich schopnosti sebareflexie a podnecujeme ich kreativitu. Takto študentov pripravujeme osobnostne aj tech zručnosťami na veľké veci, ktoré môžu v budúcnosti tvoriť.</p>
 				</div>
 				<div v-for="card in whyCards" :key="card" class="col-md-4 col-lg-3 pt-5">
-					<div class="card border-0 text-md-start">
-						<img class="mx-auto mx-md-0" :src="card.imgSrc" alt="select" width="45">
-						<div class="card-body px-0 pt-3">
-							<h5 class="card-title fw-bold mb-2">{{card.title}}</h5>
-							<p class="card-text text-secondary">{{card.text}}</p>
-						</div>
-					</div>
+					<Icon-card v-bind="card" imgClass="" />
 				</div>
 			</div>
 		</div>
@@ -88,19 +82,7 @@
 					</h1>
 				</div>
 				<div v-for="school in schools" :key="school" class="col-lg-5">
-					<div class="card border-0 bg-transparent">
-						<img :src="school.imgSrc" alt="school">
-						<div class="card-body mx-0 px-1 py-4">
-							<h6 class="card-subtitle text-secondary">
-								<img :src="origAssets + 'images/place.svg'" alt="place">
-								{{school.loc}}
-							</h6>
-							<div class="card-title d-flex justify-content-between align-items-end mt-4">
-								<span class="fw-bold me-4">{{school.name}}</span>
-								<a class="text-primary fw-bold text-decoration-none" :href="school.href">{{hostOf(school.href)}}</a>
-							</div>
-						</div>
-					</div>
+					<AdCard v-bind="school"/>
 				</div>
 			</div>
 		</div>
@@ -168,13 +150,7 @@
 					</h1>
 				</div>
 				<div v-for="card in specialsCards" :key="card" class="col-lg-4 pt-5 px-4">
-					<div class="card border-0 text-md-start">
-						<img class="mx-auto ms-0" :src="card.imgSrc" alt="select" width="45">
-						<div class="card-body px-0 pt-3">
-							<h5 class="card-title fw-bold my-2 mb-3">{{card.title}}</h5>
-							<p class="card-text text-secondary">{{card.text}}</p>
-						</div>
-					</div>
+					<Icon-card v-bind="card" imgClass="ms-0" titleClass="my-2 mb-3"/>
 				</div>
 			</div>
 		</div>
@@ -297,12 +273,15 @@
 
 <script>
 import LinkCard from "@/components/LinkCard.vue";
+import GridSection from "@/components/GridSection.vue";
+import IconCard from "@/components/IconCard.vue";
+import AdCard from "@/components/AdCard.vue";
 
 const origAssets = "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/";
 
 export default {
 	components: {
-		LinkCard,
+		LinkCard, GridSection, IconCard, AdCard
 	},
 
 	data() {
@@ -328,13 +307,13 @@ export default {
 
 			schools: [
 				{
-					name: "Stredná Priemyselná Škola Elektrotechnická", 
+					title: "Stredná Priemyselná Škola Elektrotechnická", 
 					loc: "Hálova 16, Bratislava", 
 					imgSrc: origAssets + "/images/school1.png", 
 					href: "https://spsehalova.sk/"
 				},
 				{
-					name: "Stredná Priemyselná Škola Informačných Technológií", 
+					title: "Stredná Priemyselná Škola Informačných Technológií", 
 					loc: "Nábrežná 1325, Kysucké Nové Mesto", 
 					imgSrc: origAssets + "images/school2.png", 
 					href: "http://www.spsknm.sk/ssknm/"

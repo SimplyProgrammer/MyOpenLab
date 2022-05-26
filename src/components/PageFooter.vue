@@ -10,7 +10,7 @@
 					<p v-for="txt in [].concat(texts)" :key="txt" class="m-0" v-html="txt"></p>
 				</div>
 				<div class="col-6 col-lg-2">
-					<a v-for="link in [].concat(links)" :key="link" class="m-0 text-secondary" href="mailto:info@openlab.sk">{{link}}</a>
+					<a v-for="link in [].concat(links)" :key="link" class="m-0 text-secondary" :href="link">{{link.toString().replace("mailto:", "")}}</a>
 				</div>
 				<div class="col-6 col-lg-3 d-flex justify-content-end">
 					<a v-for="contact in [].concat(contacts)" :key="contact" :href="contact.href">

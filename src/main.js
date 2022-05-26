@@ -10,13 +10,14 @@ import MainNavbar from "@/components/MainNavbar.vue";
 import SiteHeader from "@/components/SiteHeader.vue";
 import PageFooter from "@/components/PageFooter.vue";
 import MainJumbotron from "@/components/MainJumbotron.vue";
+import GridSection from "@/components/GridSection.vue";
 
 const app = createApp(App).use(router);
 const origAssets = "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/";
 
 app.mixin({
 	components: {
-		MainNavbar, SiteHeader, PageFooter, MainJumbotron
+		MainNavbar, SiteHeader, PageFooter, MainJumbotron, GridSection
 	},
 
 	methods: {
@@ -32,7 +33,7 @@ app.mixin({
 				brandImg: origAssets + "images/openlab-logo.svg", 
 				brandTxt: "© 2022 Všetky práva vyhradené <b>OPENLAB, o.z.,</b>",
 				texts: ["IČO: 50764675", "Viedenská cesta 257, 805 01 Bratislava"],
-				links: "info@openlab.sk", 
+				links: "mailto:info@openlab.sk", 
 				contacts: [
 					{imgSrc: origAssets + "images/facebook.svg", href: "https://www.facebook.com/OpenLab.sk/"}, 
 					{imgSrc: origAssets + "images/linkedin.svg", href: "https://www.instagram.com/openlab.sk/?igshid=1xz2g75a3yzu1"},
