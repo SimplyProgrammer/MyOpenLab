@@ -1,6 +1,6 @@
 <template>
 	<div class="card">
-		<img :class="imgClass" :src="imgSrc" alt="school">
+		<img class="card-img-top" :class="imgClass" :src="imgSrc" alt="school">
 		<div class="card-body mx-0 px-1 py-4">
 			<a class="text-decoration-none" :href="'https://www.google.com/maps/place/' + loc">
 				<h6 class="card-subtitle text-secondary">
