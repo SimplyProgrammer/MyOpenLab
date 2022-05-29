@@ -41,6 +41,10 @@ $min-contrast-ratio: 2.99;
 .nav-side-menu {
 	bottom: 100px;
 
+	@media (min-height: 720px) {
+		position: absolute;
+	}
+
 	p {
 		font-weight: normal;
 		font-size: 14px;
