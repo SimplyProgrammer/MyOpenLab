@@ -5,7 +5,7 @@
 				<img :src="brand.imgSrc" alt="openlab">
 			</a>
 
-			<button class="navbar-toggler" @click="$refs.navSideMenu.open()">
+			<button class="navbar-toggler" @click="$refs.nav-side-menu.open()">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
@@ -27,7 +27,7 @@
 		</div>
 	</nav>
 
-	<Side-menu ref="navSideMenu">
+	<Z-side-menu ref="nav-side-menu">
 		<div class="text-center">
 			<div class="mx-5" v-for="item in items" :key="item">
 				<a class="nav-link my-2" :href="item.href">{{item.name}}</a>
@@ -37,16 +37,14 @@
 			<br>
 			<slot name="sideMenu"></slot>
 		</div>
-	</Side-menu>
+	</Z-side-menu>
 </template>
 
 <script>
-import SideMenu from "@/components/SideMenu.vue";
+import ZSideMenu from "@/components/layout/ZSideMenu.vue";
 
 export default {
-	components: {
-		SideMenu
-	},
+	components: {ZSideMenu},
 
 	props: {
 		brand: {

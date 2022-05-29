@@ -12,20 +12,19 @@
 				<div class="col-6 col-lg-2">
 					<a v-for="link in [].concat(links)" :key="link" class="m-0 text-secondary" :href="link">{{link.toString().replace("mailto:", "")}}</a>
 				</div>
-				<div class="col-6 col-lg-3 d-flex justify-content-end">
-					<a v-for="contact in [].concat(contacts)" :key="contact" :href="contact.href">
-						<img class="mx-2" :src="contact.imgSrc">
-					</a>
-				</div>
+				<Z-img-flow class="col-6 col-lg-3 d-flex justify-content-end" imgClass="mx-2" :imgs="contacts"/>
 			</div>
 		</div>
-		<img class="position-absolute top-50" :src="origAssets + 'images/footer.svg'" alt="footer">
+		<img class="position-absolute top-50" :src="shape">
 	</footer>
 </template>
 
 <script>
+import ZImgFlow from "@/components/layout/ZImgFlow.vue";
+
 export default {
-	props: ["brandImg", "brandTxt", "texts", "links", "contacts"],
+	components: {ZImgFlow},
+	props: ["brandImg", "brandTxt", "texts", "links", "contacts", "shape"],
 }
 </script>
 

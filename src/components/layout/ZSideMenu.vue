@@ -3,7 +3,7 @@
 		<div v-if="isOpen" class="bg w-100 h-100 position-fixed top-0 start-0" @click.self="close()">
 			<transition :name="side == 'left' ? 'appearSideBarLeft' : 'appearSideBarRight'">
 				<div v-if="isMenuOpen" class="sidebar h-100" :class="{'float-start': side == 'left', 'float-end': side == 'right'}" :style="{width: menuWidth, background: menuBackground}">
-					<img class="btn float-end m-2" src="../assets/imgs/x.svg" alt="close" @click.self="close()">
+					<img class="btn float-end m-2" src="@/assets/imgs/x.svg" alt="close" @click.self="close()">
 					<br><br>
 					<slot></slot>
 				</div>

@@ -1,288 +1,210 @@
 <template>
-	<Site-header />
+	<A-site-header />
 
-	<MainNavbar v-bind="nav">
-		<template v-slot:sideMenu>
-			<div class="navSideMenu position-fixed">
+	<Z-main-navbar v-bind="nav">
+		<template #sideMenu>
+			<div class="nav-side-menu position-fixed">
 				<p class="side-header-text mx-5">Ak máš záujem študovať spolu s nami, sme tu pre teba…</p>
 				<a href="https://discord.com/invite/Y6xrdTvjFn" class="join-discord-btn mx-3 btn btn-sm rounded-pill d-flex justify-content-center align-items-center">OPENLAB COMMUNITY
 					<img class="ms-1" :src="origAssets + 'images/discord.svg'" alt="discord">
 				</a>
 			</div>
 		</template>
-	</MainNavbar>
+	</Z-main-navbar>
 
-	<Main-jumbotron class="bg-primary" :mainImg="origAssets + 'images/main-home.png'" :shape="origAssets + 'images/o_letter.png'">
+	<Z-main-jumbotron class="bg-primary mb-5" :mainImg="origAssets + 'images/main-home.png'" :shape="origAssets + 'images/o_letter.png'">
 		<h1 class="text-white fw-light">Inštitút stredoškolského odborného vzdelávania
 			<br>
 			<span class="fw-bold">zameraný na IT &amp; AI</span>
 		</h1>
 		<p class="text-white mt-4 me-4">Realizujeme odborné vzdelávanie zamerané na IT pre štátne školy ako nový štandard formálneho vzdelávania</p>
-	</Main-jumbotron>
+	</Z-main-jumbotron>
 
-	<section id="why" class="py-5">
-		<div class="container">
-			<div class="row justify-content-center text-center">
-				<div class="col-12">
-					<h1 class="fw-light mb-5">Prečo 
-						<span class="fw-bold">OpenLab?</span>
-					</h1>
-					<p class="mx-5 mb-5 text-secondary">V OpenLabe študentov učíme najnovšie technológie. Zároveň im dávame veľkú slobodu, pričom ich vedieme k zodpovednosti a samostatnosti, učíme ich princípy partnerského prístupu, pracovať v tíme, trénujeme ich schopnosti sebareflexie a podnecujeme ich kreativitu. Takto študentov pripravujeme osobnostne aj tech zručnosťami na veľké veci, ktoré môžu v budúcnosti tvoriť.</p>
-				</div>
-				<div v-for="card in whyCards" :key="card" class="col-md-4 col-lg-3 pt-5">
-					<Icon-card v-bind="card" imgClass="" />
-				</div>
-			</div>
+	<Z-grid-section id="why" class="py-5" rowClass="justify-content-center text-center">
+		<div class="col-12">
+			<h1 class="fw-light mb-5">Prečo 
+				<span class="fw-bold">OpenLab?</span>
+			</h1>
+			<p class="mx-5 mb-5 text-secondary">V OpenLabe študentov učíme najnovšie technológie. Zároveň im dávame veľkú slobodu, pričom ich vedieme k zodpovednosti a samostatnosti, učíme ich princípy partnerského prístupu, pracovať v tíme, trénujeme ich schopnosti sebareflexie a podnecujeme ich kreativitu. Takto študentov pripravujeme osobnostne aj tech zručnosťami na veľké veci, ktoré môžu v budúcnosti tvoriť.</p>
 		</div>
-	</section>
+		<div v-for="card in whyCards" :key="card" class="col-md-4 col-lg-3 pt-5">
+			<Z-icon-card v-bind="card" imgClass=""/>
+		</div>
+	</Z-grid-section>
 
-	<section id="vision" class="py-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-5 my-5">
-					<h1 class="fw-light mb-5">Naša vízia
-						<b class="fw-bold">v OpenLabe</b>
-					</h1>
-					<p class="mb-4 text-secondary">Veríme, že otvorený prístup a kvalitné vzdelanie sú základom úspechu jednotlivca ako aj prosperujúcej spoločnosti.</p>
-					<p class="text-secondary">Uvedomujeme si, že ak chceme niečo zmeniť, musíme ísť príkladom. Našim cieľom je rozšíriť princípy OpenLab-u na všetkých úrovniach škôl a nastaviť svetový štandard vzdelávania v školstve v technológiách.</p>
-				</div>
-				<div class="col-lg-7 d-flex flex-wrap justify-content-center justify-content-lg-end">
-					<div v-for="cell in visionCells" :key="cell" class="rounded m-2 p-4 text-end fw-bold d-flex flex-column justify-content-end">
-						<p class="count m-0">{{cell.count}}</p> 
-						<p class="m-0">{{cell.name}}</p>
-					</div>
-				</div>
-			</div>
+	<Z-grid-section id="vision" class="py-5">
+		<div class="col-lg-5 my-5">
+			<h1 class="fw-light mb-5">Naša vízia
+				<b class="fw-bold">v OpenLabe</b>
+			</h1>
+			<p class="mb-4 text-secondary">Veríme, že otvorený prístup a kvalitné vzdelanie sú základom úspechu jednotlivca ako aj prosperujúcej spoločnosti.</p>
+			<p class="text-secondary">Uvedomujeme si, že ak chceme niečo zmeniť, musíme ísť príkladom. Našim cieľom je rozšíriť princípy OpenLab-u na všetkých úrovniach škôl a nastaviť svetový štandard vzdelávania v školstve v technológiách.</p>
 		</div>
-	</section>
+		<Z-count-cells-flow class="col-lg-7 justify-content-center justify-content-lg-end" cellClass="d-flex flex-column justify-content-end cell-variants" :cells="visionCells"/>
+	</Z-grid-section>
 
-	<section id="labs" class="py-5">
-		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col-md-12 col-xl-4 text-start mb-5 mb-xl-0">
-					<h1 class="fw-light">V akých laboch
-						<br>
-						<span class="fw-bold">možeš študovať?</span>
-					</h1>
-				</div>
-				<div class="col-lg-8 card-group">
-					<Link-card v-for="card in labsCards" :key="card" v-bind="card"/>
-				</div>
-			</div>
+	<Z-grid-section id="labs" class="py-5" rowClass="justify-content-center align-items-center">
+		<div class="col-md-12 col-xl-4 text-start mb-5 mb-xl-0">
+			<h1 class="fw-light">V akých laboch
+				<br>
+				<span class="fw-bold">možeš študovať?</span>
+			</h1>
 		</div>
-	</section>
+		<div class="col-lg-8 card-group">
+			<Z-link-card v-for="card in labsCards" :key="card" v-bind="card" role="button"/>
+		</div>
+	</Z-grid-section>
 
-	<section id="schools" class="py-5 position-relative">
-		<div class="container p-2">
-			<div class="row justify-content-evenly">
-				<div class="col-lg-12 text-center">
-					<h1 class="fw-light mb-5">
-						<span class="fw-bold">Nachádzame sa</span>
-						na dvoch školách
-					</h1>
-				</div>
-				<div v-for="school in schools" :key="school" class="col-lg-5">
-					<AdCard v-bind="school"/>
-				</div>
-			</div>
+	<Z-grid-section id="schools" class="py-5 position-relative" containerClass="p-2" rowClass="justify-content-evenly">
+		<div class="col-lg-12 text-center">
+			<h1 class="fw-light mb-5">
+				<span class="fw-bold">Nachádzame sa</span>
+				na dvoch školách
+			</h1>
 		</div>
-		<img class="overflow-hidden shape-right position-absolute d-none d-md-block" :src="origAssets + 'images/p_letter.png'" alt="shape">
-	</section>
+		<div v-for="school in schools" :key="school" class="col-lg-5">
+			<Z-ad-card class="border-0 bg-transparent z-1" v-bind="school"/>
+		</div>
+		<template #outer>
+			<img class="overflow-hidden shape-right position-absolute d-none d-md-block myimg" :src="origAssets + 'images/p_letter.png'" alt="shape">
+		</template>
+	</Z-grid-section>
 
-	<section id="want" class="bg-primary-lighter pt-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-lg-5 py-5">
-					<h1 class="fw-bold">Chceš ísť študovať odbor
-						<br>
-						<span class="fw-light">kompletne zameraný na IT?</span>
-					</h1>
-					<h5 class="fw-bold mt-5 mb-3 position-relative">Programovanie digitálnych technológií</h5>
-					<p class="text-secondary">Čaká ťa tvorba aplikácií a hier, inovatívne myslenie, práca na reálnych projektoch. To všetko v spolupráci s tech odborníkmi z praxe, ktorí budú študentov a študentky na ich ceste sprevádzať a podporovať.</p>
-					<p class="text-secondary pt-2">Staň sa súčasťou tohto inovatívneho študijného programu aj ty!</p>
-					<button class="btn btn-big w-50 btn-primary mt-4" @click="gotoSite('https://pdt.openlab.sk/')">Chcem vedieť viac</button>
-				</div>
-				<div class="col-lg-7 d-none d-lg-flex align-items-end">
-					<img class="img-fluid" :src="origAssets + 'images/students.png'" alt="img">
-				</div>
-			</div>
+	<Z-grid-section id="want" class="bg-primary-lighter pt-5">
+		<div class="col-12 col-lg-5 py-5">
+			<h1 class="fw-bold">Chceš ísť študovať odbor
+				<br>
+				<span class="fw-light">kompletne zameraný na IT?</span>
+			</h1>
+			<h5 class="fw-bold mt-5 mb-3 position-relative">Programovanie digitálnych technológií</h5>
+			<p class="text-secondary">Čaká ťa tvorba aplikácií a hier, inovatívne myslenie, práca na reálnych projektoch. To všetko v spolupráci s tech odborníkmi z praxe, ktorí budú študentov a študentky na ich ceste sprevádzať a podporovať.</p>
+			<p class="text-secondary pt-2">Staň sa súčasťou tohto inovatívneho študijného programu aj ty!</p>
+			<button class="btn btn-big w-50 btn-primary mt-4" @click="gotoSite('https://pdt.openlab.sk/')">Chcem vedieť viac</button>
 		</div>
-	</section>
+		<div class="col-lg-7 d-none d-lg-flex align-items-end">
+			<img class="img-fluid" :src="origAssets + 'images/students.png'" alt="img">
+		</div>
+	</Z-grid-section>
 
-	<section id="join" class="py-5">
-		<div class="container pt-5">
-			<div class="text-center pt-5 mb-5">
-				<h1 class="fw-light">Pridajte sa k nám
-					<br>
-					<span class="fw-bold">My všetci sme OpenLab…</span>
-				</h1>
-			</div>
-			<div class="card-group">
-				<Link-card v-for="card in joinCards" :key="card" v-bind="card"/>
-			</div>
+	<Z-grid-section id="join" class="py-5" containerClass="pt-5">
+		<div class="text-center pt-5 mb-5">
+			<h1 class="fw-light">Pridajte sa k nám
+				<br>
+				<span class="fw-bold">My všetci sme OpenLab…</span>
+			</h1>
 		</div>
-	</section>
+		<div class="card-group">
+			<Z-link-card v-for="card in joinCards" :key="card" v-bind="card" href="https://www.facebook.com/"/>
+		</div>
+	</Z-grid-section>
 
-	<section id="studentProjects" class="py-5 position-relative">
-		<div class="container border-bottom">
-			<div class="text-center py-4">
-				<h1 class="fw-light">Pozrite si
-					<span class="fw-bold">študentské projekty</span>
-				</h1>
-				<p class="text-secondary m-5 px-0 px-lg-5">Stredoškoláci v OpenLaboch pracujú na reálnych projektoch v spolupráci s firmami pričom získavajú praktické zručnosti a osvojujú si prístup, ktorým neskôr posunú svet technológií a celú spoločnosť vpred.</p>
-			</div>
-			<p class="fw-light mt-3 mb-5 position-relative">Projekty študentov v
-				<span class="fw-bold">OpenLabe</span>
-			</p>
-			<a class="text-decoration-none text-primary d-flex mb-5" href="https://www.youtube.com/channel/UCinIL-0-qCLU6zE5fo1SPNw">Pozrieť si všetky projekty
-				<img class="ms-2" :src="origAssets + 'images/arrow-right-blue.svg'" alt="hover arrow">
-			</a>
+	<Z-grid-section id="studentProjects" class="py-5 position-relative" containerClass="border-bot-blue">
+		<div class="text-center py-4">
+			<h1 class="fw-light">Pozrite si
+				<span class="fw-bold">študentské projekty</span>
+			</h1>
+			<p class="text-secondary m-5 px-0 px-lg-5">Stredoškoláci v OpenLaboch pracujú na reálnych projektoch v spolupráci s firmami pričom získavajú praktické zručnosti a osvojujú si prístup, ktorým neskôr posunú svet technológií a celú spoločnosť vpred.</p>
 		</div>
-		<img class="overflow-hidden shape-left position-absolute d-none d-md-block" :src="origAssets + 'images/a_letter.png'" alt="shape">
-	</section>
+		<Z-link-card class="mb-5 no-hover-shadow always-hover bg-transparent" title="Projekty študentov v <b class='fw-bold'>OpenLabe</b>" titleClass="h6 mt-3 mb-5 position-relative small-underline" hrefText="Pozrieť si všetky projekty" href="https://www.youtube.com/channel/UCinIL-0-qCLU6zE5fo1SPNw" noPadding/>
+		<template #outer>
+			<img class="overflow-hidden shape-left position-absolute d-none d-md-block z--1" :src="origAssets + 'images/a_letter.png'" alt="shape">
+		</template>
+	</Z-grid-section>
 
-	<section id="special" class="py-5">
-		<div class="container border-bottom py-5">
-			<div class="row justify-content-center">
-				<div class="col-12 text-center mb-4">
-					<h1 class="fw-light">Čím sme
-						<span class="fw-bold">výnimoční?</span>
-					</h1>
-				</div>
-				<div v-for="card in specialsCards" :key="card" class="col-lg-4 pt-5 px-4">
-					<Icon-card v-bind="card" imgClass="ms-0" titleClass="my-2 mb-3"/>
-				</div>
-			</div>
+	<Z-grid-section id="special" class="py-5" containerClass="border-bot-blue py-5" rowClass="justify-content-center">
+		<div class="col-12 text-center mb-4">
+			<h1 class="fw-light">Čím sme <b class="fw-bold">výnimoční?</b></h1>
 		</div>
-	</section>
+		<div v-for="card in specialsCards" :key="card" class="col-lg-4 pt-5 px-4">
+			<Z-icon-card v-bind="card" imgClass="ms-0" titleClass="my-2 mb-3"/>
+		</div>
+	</Z-grid-section>
 
-	<section id="meetUs" class="py-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 text-center">
-					<h1 class="fw-bold mb-5">Spoznaj nás</h1>
-				</div>
-				<div v-for="card in usCards" :key="card" class="col-6 col-lg-3 mb-4">
-					<div class="card border-0">
-						<img class="rounded" :src="card.imgSrc" alt="profile pic">
-						<div class="card-body px-0">
-							<h6 class="card-subtitle text-secondary fs-14px">{{card.subtitle}}</h6>
-							<h5 class="card-title fw-bold m-0 mt-3">{{card.title}}</h5>
-							<p class="card-text text-secondary">{{card.text}}</p>
-						</div>
-					</div>
-				</div>
-			</div>
+	<Z-grid-section id="meetUs" class="py-5">
+		<div class="col-12 text-center">
+			<h1 class="fw-bold mb-5">Spoznaj nás</h1>
 		</div>
-	</section>
+		<div v-for="card in usCards" :key="card" class="col-6 col-lg-3 mb-4">
+			<Z-profile-card v-bind="card" class="border-0"/>
+		</div>
+	</Z-grid-section>
 
-	<section id="supportUs" class="py-5">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<img class="img-fluid mb-2" :src="origAssets + 'images/people.png'" alt="img">
-				</div>
-				<div class="col-lg-6">
-					<h2 class="fw-bold mb-4">Podporte nás</h2>
-					<p class="text-secondary mb-5">OpenLab postupne rozširujeme ako neziskový vzdelávací projekt s cieľom otvoriť OpenLab-y zamerané na rôzne IT technológie na čo najväčší počet škôl vo všetkých slovenských regiónoch. Veríme, že OpenLab bude natoľko úspešný, že sa stane štandardom vzdelávania na Slovensku!</p>
-					<a class="text-decoration-none text-primary d-flex" href="https://www.youtube.com/channel/UCinIL-0-qCLU6zE5fo1SPNw">Chcem podporiť
-						<img class="ms-2" :src="origAssets + 'images/arrow-right-blue.svg'" alt="hover arrow">
-					</a>
-				</div>
-			</div>
+	<Z-grid-section id="supportUs" class="py-5" rowClass="align-items-center">
+		<div class="col-lg-6">
+			<img class="img-fluid mb-2" :src="origAssets + 'images/people.png'" alt="img">
 		</div>
-	</section>
+		<div class="col-lg-6">
+			<Z-link-card class="always-hover no-hover-shadow" title="<h2 class='fw-bold mb-4'>Podporte nás</h2>" textClass="mb-5" hrefText="Chcem podporiť" href="https://www.ludialudom.sk/profil/detail/41588" noPadding>
+				OpenLab postupne rozširujeme ako neziskový vzdelávací projekt s cieľom otvoriť OpenLab-y zamerané na rôzne IT technológie na čo najväčší počet škôl vo všetkých slovenských regiónoch. Veríme, že OpenLab bude natoľko úspešný, že sa stane štandardom vzdelávania na Slovensku!
+			</Z-link-card>
+		</div>
+	</Z-grid-section>
 
-	<section id="whoBehind" class="py-5">
-		<div class="container py-4">
-			<div class="row align-items-center">
-				<div class="col-lg-5">
-					<h1 class="fw-light mb-5 m-lg-0">Kto stojí
-						<br>
-						<span class="fw-bold">za Openlabom?</span>
-					</h1>
-				</div>
-				<div class="col-lg-7 d-flex flex-wrap justify-content-evenly">
-					<img v-for="img in whoImgs" :key="img" class="img-fluid my-3 me-5" :src="img" :alt="img">
-				</div>
-			</div>
+	<Z-grid-section id="whoBehind" class="py-5" containerClass="py-4" rowClass="align-items-center">
+		<div class="col-lg-5">
+			<h1 class="fw-light mb-5 m-lg-0">Kto stojí
+				<br>
+				<span class="fw-bold">za Openlabom?</span>
+			</h1>
 		</div>
-	</section>
+		<Z-img-flow class="col-lg-7 justify-content-evenly align-items-center" imgClass="my-3 me-5" :imgs="whoImgs"/>
+	</Z-grid-section>
 
 	<section id="instagram" class="py-5 my-5 row flex-wrap">
 		<img v-for="i in 6" :key="i" class="col-2 p-0 img-fluid" src="https://openlab.sk/wp-content/uploads/spotlight-insta/17958348493693799-s.jpg">
 	</section>
 
-	<section id="modernSchool" class="py-5">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6 pe-5 order-2 order-lg-0">
-					<h1 class="fw-light mb-5 m-lg-0">Nie je moderná škola
-						<br>
-						<span class="fw-bold">ako moderná škola</span>
-					</h1>
-					<p class="text-secondary mt-3 mb-4">Podcast Moderná škola vznikol v spolupráci s Romanom ”Yablkom” Hraškom, kde našim zámerom je rozobrať svet štandardného vzdelávania a spôsob ako môže fungovať moderné vzdelávanie v technológiach.</p>
-					<div class="d-flex mb-4">
-						<a v-for="plat in podcastPlatforms" :key="plat" :href="plat.href">
-							<img class="me-3" :src="plat.imgSrc">
-						</a>
-					</div>
-					<button class="btn btn-primary btn-big w-50" @click="$router.push('/moderna-skola')">Moderná škola</button>
-				</div>
-				<div class="col-lg-6">
-					<img class="img-fluid mb-5 mb-lg-0" :src="origAssets + 'images/modern.png'" alt="modern school">
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="supporters" class="py-5">
-		<div class="container py-4">
-			<h1 class="fw-light text-center mb-5">Pozrite si
-				<span class="fw-bold">študentské projekty</span>
+	<Z-grid-section id="modernSchool" class="py-5" rowClass="align-items-center">
+		<div class="col-lg-6 pe-5 order-2 order-lg-0">
+			<h1 class="fw-light mb-5 m-lg-0">Nie je moderná škola
+				<br>
+				<span class="fw-bold">ako moderná škola</span>
 			</h1>
-			<div class="d-grid pt-4">
-				<div v-for="supp in supporters" :key="supp" class="d-flex justify-content-center align-items-center">
-					<img class="img-fluid mx-3" :src="supp">
-				</div>
-			</div>
+			<p class="text-secondary mt-3 mb-4">Podcast Moderná škola vznikol v spolupráci s Romanom ”Yablkom” Hraškom, kde našim zámerom je rozobrať svet štandardného vzdelávania a spôsob ako môže fungovať moderné vzdelávanie v technológiach.</p>
+			<Z-img-flow class="mb-4 align-items-center" imgClass="me-3" :imgs="podcastPlatforms"/>
+			<button class="btn btn-primary btn-big w-50" @click="$router.push('/moderna-skola')">Moderná škola</button>
 		</div>
-	</section>
-
-	<section id="newsletter" class="py-5">
-		<div class="container p-5 mb-5 bg-primary-light rounded-3">
-			<div class="row align-items-center">
-				<div class="col-lg">
-					<h5 class="fw-light m-0 ps-lg-4">Prihláste sa do nášho newslettra a budete mať
-						<br>
-						<span class="fw-bold">čerstvé informácie o živote v OpenLabe.</span>
-					</h5>
-				</div>
-				<div class="col-lg">
-					<div class="position-relative mt-5 mt-lg-0">
-						<input class="bg-white border-0 w-100 rounded-3 px-3 " placeholder="Sem napíš tvoj e-mail" type="email">
-						<img class="position-absolute" role="button" :src="origAssets + 'images/send.svg'">
-					</div>
-				</div>
-			</div>
+		<div class="col-lg-6">
+			<img class="img-fluid mb-5 mb-lg-0" :src="origAssets + 'images/modern.png'" alt="modern school">
 		</div>
-	</section>
+	</Z-grid-section>
 
-	<Page-footer v-bind="footer"/>
+	<Z-grid-section id="supporters" class="py-5" containerClass="py-4">
+		<h1 class="fw-light text-center mb-5">Ďakujeme za
+			<span class="fw-bold">podporu v roku 2021!</span>
+		</h1>
+		<Z-img-flow class="pt-4" imgClass="mx-3 my-3 my-lg-0" wrapperClass="d-flex justify-content-center align-items-center" :imgs="supporters" :cols="innerWidth > 940 ? 5 : 2"/>
+	</Z-grid-section>
+
+	<Z-grid-section id="newsletter" class="py-5" containerClass="p-5 mb-5 bg-primary-light rounded-3" rowClass="align-items-center">
+		<div class="col-lg">
+			<h5 class="fw-light m-0 ps-lg-4">Prihláste sa do nášho newslettra a budete mať
+				<br>
+				<span class="fw-bold">čerstvé informácie o živote v OpenLabe.</span>
+			</h5>
+		</div>
+		<div class="col-lg">
+			<Z-valid-input placeholder="Sem napíš tvoj e-mail" :confirmImg="origAssets + 'images/send.svg'" pattern="\S+@\S+\.\S+"/>
+		</div>
+	</Z-grid-section>
+
+	<Z-page-footer v-bind="footer" />
 </template>
 
 <script>
-import LinkCard from "@/components/LinkCard.vue";
-import GridSection from "@/components/GridSection.vue";
-import IconCard from "@/components/IconCard.vue";
-import AdCard from "@/components/AdCard.vue";
+import ZLinkCard from "@/components/cards/ZLinkCard.vue";
+import ZGridSection from "@/components/layout/ZGridSection.vue";
+import ZIconCard from "@/components/cards/ZIconCard.vue";
+import ZAdCard from "@/components/cards/ZAdCard.vue";
+import ZCountCellsFlow from "@/components/layout/ZCountCellsFlow.vue";
+import ZProfileCard from "@/components/cards/ZProfileCard.vue";
+import ZImgFlow from "@/components/layout/ZImgFlow.vue";
+import ZValidInput from "@/components/ZValidInput.vue";
 
 const origAssets = "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/";
 
 export default {
-	components: {
-		LinkCard, GridSection, IconCard, AdCard
-	},
+	components: {ZLinkCard, ZGridSection, ZIconCard, ZAdCard, ZCountCellsFlow, ZProfileCard, ZImgFlow, ZValidInput},
 
 	data() {
 		return {
@@ -355,22 +277,15 @@ export default {
 				{href: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL21vZGVybmFza29sYS9mZWVkLnhtbA", imgSrc: origAssets + "images/google.svg"}
 			],
 
-			supporters: [...new Array(10)].map((obj, i) => origAssets + "images/support" + ++i + ".svg"),
+			supporters: [...Array(10)].map((obj, i) => origAssets + "images/support" + ++i + ".svg"),
 		}
 	}
 }
 </script>
 
-<style lang="scss" scoped>
-img:not(.position-absolute) {
-	z-index: 1;
-}
-
+<style lang="scss">
 #vision {
-	.rounded {
-		width: 234px;
-		height: 184px;
-
+	.cell-variants {
 		&:nth-child(1n) {
 			color: #5b94d7;
 			background-color: rgba(221, 236, 251, 0.4);
@@ -390,29 +305,15 @@ img:not(.position-absolute) {
 			color: #b95e73;
 			background-color: rgba(238, 156, 156, 0.4);
 		}
-
-		@media (max-width: 767.98px) {
-			width: calc( 50% - 20px);
-			height: 120px;
-		}
-
-		.count {
-			font-size: 90px;
-			line-height: 0.9;
-
-			@media (max-width: 767.98px) {
-				font-size: 50px;
-			}
-		}
 	}
 }
 
-section .container.border-bottom {
-	border-color: #d7eaff !important;
+section .container.border-bot-blue {
+	border-bottom: 1px solid #d7eaff;
 }
 
 #studentProjects {
-	p.position-relative::before {
+	.small-underline::before {
 		content: "";
 		width: 50px;
 		height: 1px;
@@ -430,31 +331,9 @@ section .container.border-bottom {
 	}
 }
 
-#supporters {
-	.d-grid {
-		grid-template-columns: repeat(5, 1fr);
-
-		@media (max-width: 992px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-}
-
 #instagram {
 	img:hover {
 		filter: brightness(60%);
-	}
-}
-
-#newsletter {
-	input {
-		height: 40px;
-		outline: none;
-	}
-
-	img[role=button] {
-		top: 25%;
-		right: 25px;
 	}
 }
 </style>

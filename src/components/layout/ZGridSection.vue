@@ -5,6 +5,7 @@
 				<slot></slot>
 			</div>
 		</div>
+		<slot name="outer"></slot>
 	</section>
 </template>
 
