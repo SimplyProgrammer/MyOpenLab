@@ -3,7 +3,7 @@
 
 	<Z-main-navbar v-bind="nav">
 		<template #sideMenu>
-			<div class="nav-side-menu position-fixed">
+			<div class="nav-side-menu position-absolute">
 				<p class="side-header-text mx-5">Ak máš záujem študovať spolu s nami, sme tu pre teba…</p>
 				<a href="https://discord.com/invite/Y6xrdTvjFn" class="join-discord-btn mx-3 btn btn-sm rounded-pill d-flex justify-content-center align-items-center">OPENLAB COMMUNITY
 					<img class="ms-1" :src="origAssets + 'images/discord.svg'" alt="discord">
@@ -28,7 +28,7 @@
 			<p class="mx-5 mb-5 text-secondary">V OpenLabe študentov učíme najnovšie technológie. Zároveň im dávame veľkú slobodu, pričom ich vedieme k zodpovednosti a samostatnosti, učíme ich princípy partnerského prístupu, pracovať v tíme, trénujeme ich schopnosti sebareflexie a podnecujeme ich kreativitu. Takto študentov pripravujeme osobnostne aj tech zručnosťami na veľké veci, ktoré môžu v budúcnosti tvoriť.</p>
 		</div>
 		<div v-for="card in whyCards" :key="card" class="col-md-4 col-lg-3 pt-5">
-			<Z-icon-card v-bind="card" imgClass=""/>
+			<Z-icon-card v-bind="card"/>
 		</div>
 	</Z-grid-section>
 
@@ -147,7 +147,7 @@
 				<span class="fw-bold">za Openlabom?</span>
 			</h1>
 		</div>
-		<Z-img-flow class="col-lg-7 justify-content-evenly align-items-center" imgClass="my-3 me-5" :imgs="whoImgs"/>
+		<Z-img-flow class="col-lg-7 justify-content-evenly align-items-center" imgClass="my-3 m-0 me-lg-5" :imgs="whoImgs"/>
 	</Z-grid-section>
 
 	<section id="instagram" class="py-5 my-5 row flex-wrap">

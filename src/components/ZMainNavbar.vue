@@ -65,6 +65,13 @@ export default {
 			type: String,
 		}
 	},
+
+	watch: {
+		innerWidth: function() {
+			if (this.innerWidth > 992)
+				this.$refs.sideMenu.close();
+		}
+	}
 }
 </script>
 
