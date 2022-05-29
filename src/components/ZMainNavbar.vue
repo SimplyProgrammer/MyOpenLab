@@ -5,7 +5,7 @@
 				<img :src="brand.imgSrc" alt="openlab">
 			</a>
 
-			<button class="navbar-toggler" @click="$refs.nav-side-menu.open()">
+			<button class="navbar-toggler" @click="$refs.sideMenu.open()">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
@@ -27,7 +27,7 @@
 		</div>
 	</nav>
 
-	<Z-side-menu ref="nav-side-menu">
+	<Z-side-menu ref="sideMenu">
 		<div class="text-center">
 			<div class="mx-5" v-for="item in items" :key="item">
 				<a class="nav-link my-2" :href="item.href">{{item.name}}</a>

@@ -277,7 +277,7 @@ export default {
 				{href: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL21vZGVybmFza29sYS9mZWVkLnhtbA", imgSrc: origAssets + "images/google.svg"}
 			],
 
-			supporters: [...Array(10)].map((obj, i) => origAssets + "images/support" + ++i + ".svg"),
+			supporters: [...Array(10)].map((obj, i) => origAssets + "images/support" + ++i + ".svg")
 		}
 	}
 }
