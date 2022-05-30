@@ -15,7 +15,7 @@
 				<Z-img-flow class="col-sm-6 col-lg-3 d-flex justify-content-md-end mt-2" imgClass="mx-2" :imgs="contacts"/>
 			</div>
 		</div>
-		<img class="position-absolute top-50" :shapeClass="shapeClass" :src="shapeClass">
+		<img class="position-absolute top-50" :class="shapeClass" :src="shape">
 	</footer>
 </template>
 
