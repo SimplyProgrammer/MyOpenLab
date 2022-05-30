@@ -7,7 +7,7 @@
 		<div class="col-lg-6 d-none d-md-flex">
 			<img class="img-fluid z-1" :src="mainImg">
 		</div>
-		<img class="position-absolute top-0 start-0 w-100 h-100 d-md-none opacity-25" :src="mainImg">
+		<img class="position-absolute top-0 start-0 w-100 h-100 pt-5 d-md-none opacity-25" :src="mainImg">
 		<template #outer>
 			<img class="overflow-hidden shape-right position-absolute d-none d-md-block" :src="shape">
 		</template>

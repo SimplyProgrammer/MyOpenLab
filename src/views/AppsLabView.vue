@@ -16,7 +16,7 @@
 		AppsLab
 	</Z-main-jumbotron>
 	
-	<Z-page-footer v-bind="footer"/>
+	<Z-page-footer v-bind="footer" shapeClass="d-none d-sm-block"/>
 </template>
 
 <script>

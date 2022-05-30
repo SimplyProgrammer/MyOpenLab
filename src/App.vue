@@ -17,6 +17,7 @@ export default {
 button {
 	width: 48px !important;
 	height: 48px !important;
+	box-shadow: 0px 0px 22px 0px rgba(100, 100, 100, 0.3);
 
 	img {
 		width: 28px;
