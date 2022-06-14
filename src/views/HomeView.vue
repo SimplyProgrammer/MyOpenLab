@@ -76,7 +76,9 @@
 				<br>
 				<span class="fw-light">kompletne zameraný na IT?</span>
 			</h1>
-			<h5 class="fw-bold mt-5 mb-3 position-relative">Programovanie digitálnych technológií</h5>
+			<h5 class="fw-bold mt-5 mb-3 position-relative">Programovanie digitálnych technológií
+				<p class="position-absolute m-0 display-3 fw-bold opacity-05 text-secondary">2573M</p>
+			</h5>
 			<p class="text-secondary">Čaká ťa tvorba aplikácií a hier, inovatívne myslenie, práca na reálnych projektoch. To všetko v spolupráci s tech odborníkmi z praxe, ktorí budú študentov a študentky na ich ceste sprevádzať a podporovať.</p>
 			<p class="text-secondary pt-2">Staň sa súčasťou tohto inovatívneho študijného programu aj ty!</p>
 			<button class="btn btn-big w-50 btn-primary px-3 mt-4" @click="gotoSite('https://pdt.openlab.sk/')">Chcem vedieť viac</button>
@@ -310,6 +312,12 @@ export default {
 
 section .container.border-bot-blue {
 	border-bottom: 1px solid #d7eaff;
+}
+
+#want {
+	p.display-3 {
+		top: -0.75em;
+	}
 }
 
 #studentProjects {

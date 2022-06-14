@@ -8,47 +8,19 @@ import HybridLab from "../views/HybridLabView.vue";
 import GamesLab from "../views/GamesLabView.vue";
 import AppsLab from "../views/AppsLabView.vue";
 
+function route(path, component, name) {
+    return {path, component, name: name ?? path.slice(1, -1)};
+}
+
 const routes = [
-  {
-    path: "",
-    name: "home",
-    component: HomeView
-  },
-  {
-    path: "/openlaby/",
-    name: "openlaby",
-    component: LabsView
-  },
-  {
-    path: "/hybridlab/",
-    name: "hybridlab",
-    component: HybridLab
-  },
-  {
-    path: "/gameslab/",
-    name: "gameslab",
-    component: GamesLab
-  },
-  {
-    path: "/appslab/",
-    name: "appslab",
-    component: AppsLab
-  },
-  {
-    path: "/pre-ucitelov/",
-    name: "pre-ucitelov",
-    component: ForTeachersView
-  },
-  {
-    path: "/partneri/",
-    name: "partneri",
-    component: PartnersView
-  },
-  {
-    path: "/moderna-skola/",
-    name: "moderna-skola",
-    component: ModernSchoolView
-  }
+	route("", HomeView, "home"),
+	route("/openlaby/", LabsView),
+	route("/hybridlab/", HybridLab),
+	route("/gameslab/", GamesLab),
+	route("/appslab/", AppsLab),
+	route("/pre-ucitelov/", ForTeachersView),
+	route("/partneri/", PartnersView),
+	route("/moderna-skola/", ModernSchoolView),
 ]
 
 const router = createRouter({

@@ -13,6 +13,10 @@ $min-contrast-ratio: 2.99;
     overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+	display: none;
+}
+
 .bg-primary-light {
 	background-color: rgb(var(--bs-primary-rgb), 0.2);
 }
@@ -88,6 +92,10 @@ $min-contrast-ratio: 2.99;
 		bottom: calc(-218px / 2);
 		left: calc(-218px / 2);
 	}
+}
+
+.opacity-05 {
+	opacity: 0.05;
 }
 
 .z--1 {
