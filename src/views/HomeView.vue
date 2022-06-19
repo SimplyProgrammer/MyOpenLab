@@ -1,17 +1,4 @@
 <template>
-	<A-site-header />
-
-	<Z-main-navbar v-bind="nav">
-		<template #sideMenu>
-			<div class="nav-side-menu">
-				<p class="side-header-text mx-5">Ak máš záujem študovať spolu s nami, sme tu pre teba…</p>
-				<a href="https://discord.com/invite/Y6xrdTvjFn" class="join-discord-btn mx-3 btn btn-sm rounded-pill d-flex justify-content-center align-items-center">OPENLAB COMMUNITY
-					<img class="ms-1" :src="origAssets + 'images/discord.svg'" alt="discord">
-				</a>
-			</div>
-		</template>
-	</Z-main-navbar>
-
 	<Z-main-jumbotron class="bg-primary mb-5" :mainImg="origAssets + 'images/main-home.png'" :shape="origAssets + 'images/o_letter.png'">
 		<h1 class="text-white fw-light">Inštitút stredoškolského odborného vzdelávania
 			<br>
@@ -40,7 +27,7 @@
 			<p class="mb-4 text-secondary">Veríme, že otvorený prístup a kvalitné vzdelanie sú základom úspechu jednotlivca ako aj prosperujúcej spoločnosti.</p>
 			<p class="text-secondary">Uvedomujeme si, že ak chceme niečo zmeniť, musíme ísť príkladom. Našim cieľom je rozšíriť princípy OpenLab-u na všetkých úrovniach škôl a nastaviť svetový štandard vzdelávania v školstve v technológiách.</p>
 		</div>
-		<Z-count-cells-flow class="col-lg-7 justify-content-center justify-content-lg-end" cellClass="d-flex flex-column justify-content-end cell-variants" :cells="visionCells"/>
+		<Z-count-cells-flow class="col-lg-7 justify-content-center justify-content-lg-end" cellClass="d-flex flex-column justify-content-end home-cell-variants" :cells="visionCells"/>
 	</Z-grid-section>
 
 	<Z-grid-section id="labs" class="py-5" rowClass="justify-content-center align-items-center">
@@ -189,8 +176,6 @@
 			<Z-valid-input placeholder="Sem napíš tvoj e-mail" :confirmImg="origAssets + 'images/send.svg'" pattern="\S+@\S+\.\S+"/>
 		</div>
 	</Z-grid-section>
-
-	<Z-page-footer v-bind="footer" shapeClass="d-none d-sm-block"/>
 </template>
 
 <script>
@@ -203,17 +188,19 @@ import ZProfileCard from "@/components/cards/ZProfileCard.vue";
 import ZImgFlow from "@/components/layout/ZImgFlow.vue";
 import ZValidInput from "@/components/ZValidInput.vue";
 
-const origAssets = "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/";
+import Globals from "../globals.js";
 
 export default {
 	components: {ZLinkCard, ZGridSection, ZIconCard, ZAdCard, ZCountCellsFlow, ZProfileCard, ZImgFlow, ZValidInput},
 
 	data() {
 		return {
+			...Globals,
+
 			whyCards: [
-				{title: "Celospoločenský rozvoj", text: "Osnovy aj učebné materiály pre všetky tech oblasti sú open source.", imgSrc: origAssets + "images/select.svg"},
-				{title: "Učenie praxou", text: "Študentov vedieme k tímovému riešeniu problémov.", imgSrc: origAssets + "images/support.svg"},
-				{title: "Rozvoj talentu", text: "Vytvárame šikovné tímy schopné riešiť veľké problémy.", imgSrc: origAssets + "images/intership.svg"}
+				{title: "Celospoločenský rozvoj", text: "Osnovy aj učebné materiály pre všetky tech oblasti sú open source.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/select.svg"},
+				{title: "Učenie praxou", text: "Študentov vedieme k tímovému riešeniu problémov.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/support.svg"},
+				{title: "Rozvoj talentu", text: "Vytvárame šikovné tímy schopné riešiť veľké problémy.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/intership.svg"}
 			],
 
 			visionCells: [
@@ -233,13 +220,13 @@ export default {
 				{
 					title: "Stredná Priemyselná Škola Elektrotechnická", 
 					loc: "Hálova 16, Bratislava", 
-					imgSrc: origAssets + "/images/school1.png", 
+					imgSrc: process.env.VUE_APP_ORIG_ASSETS + "/images/school1.png", 
 					href: "https://spsehalova.sk/"
 				},
 				{
 					title: "Stredná Priemyselná Škola Informačných Technológií", 
 					loc: "Nábrežná 1325, Kysucké Nové Mesto", 
-					imgSrc: origAssets + "images/school2.png", 
+					imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/school2.png", 
 					href: "http://www.spsknm.sk/ssknm/"
 				}
 			],
@@ -252,34 +239,34 @@ export default {
 			],
 			
 			specialsCards: [
-				{title: "Partnerstvo", text: "Dáva študentom slobodu, ktorú vyvažujú zodpovednosťou. Spolupráca LabMastra a študentov je v partnerskej rovine.", imgSrc: origAssets + "images/special1.svg"},
-				{title: "LabMaster", text: "Je mentor s expertízou v danej oblasti, ktorý nastavuje rámce a sprevádza študentov pri dosahovaní míľnikov.", imgSrc: origAssets + "images/special2.svg"},
-				{title: "Učebný blok", text: "Je základný dokument, z ktorého sa študenti učia. Obsahuje všetky vzdelávacie podklady pre konkrétnu fázu.", imgSrc: origAssets + "images/special3.svg"},
-				{title: "Problem driven", text: "Je princíp učenia, vďaka ktorému sú študenti vedení ku kritickému mysleniu s cieľom vyriešiť konkrétne problémy.", imgSrc: origAssets + "images/special4.svg"},
-				{title: "Project driven", text: "Po teoretickej fáze sú študenti rozdelení do tímov, v ktorých v spolupráci s firmami tvoria konkrétny projekt pre zákazníka.", imgSrc: origAssets + "images/special5.svg"},
-				{title: "Samoštúdium", text: "Študenti trávia 80% času samoštúdiom a sú vedení k tímovej spolupráci. 20% teórie slúži iba ako odrazový mostík.", imgSrc: origAssets + "images/special6.svg"}
+				{title: "Partnerstvo", text: "Dáva študentom slobodu, ktorú vyvažujú zodpovednosťou. Spolupráca LabMastra a študentov je v partnerskej rovine.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/special1.svg"},
+				{title: "LabMaster", text: "Je mentor s expertízou v danej oblasti, ktorý nastavuje rámce a sprevádza študentov pri dosahovaní míľnikov.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/special2.svg"},
+				{title: "Učebný blok", text: "Je základný dokument, z ktorého sa študenti učia. Obsahuje všetky vzdelávacie podklady pre konkrétnu fázu.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/special3.svg"},
+				{title: "Problem driven", text: "Je princíp učenia, vďaka ktorému sú študenti vedení ku kritickému mysleniu s cieľom vyriešiť konkrétne problémy.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/special4.svg"},
+				{title: "Project driven", text: "Po teoretickej fáze sú študenti rozdelení do tímov, v ktorých v spolupráci s firmami tvoria konkrétny projekt pre zákazníka.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/special5.svg"},
+				{title: "Samoštúdium", text: "Študenti trávia 80% času samoštúdiom a sú vedení k tímovej spolupráci. 20% teórie slúži iba ako odrazový mostík.", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/special6.svg"}
 			],
 
 			usCards: [
-				{title: "Grigor Ayrumyan", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Co-founder & Executive Director", imgSrc: origAssets + "images/grigor-ayrumyan.jpg"},
-				{title: "Slavomír Terezka", subtitle: "BOARD MEMBER", text: "Co-founder", imgSrc: origAssets + "images/slavomir-terezka.jpg"},
-				{title: "Roman Sekerka", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Co-founder & Tech Garant pre HybridLab a AppsLab", imgSrc: origAssets + "images/roman-sekerka.jpg"},
-				{title: "Ján Kožlej", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Tech Garant pre GamesLab", imgSrc: origAssets + "images/jan-kozlej.jpg"},
-				{title: "Veronika Radobická", subtitle: "EXECUTIVE TEAM", text: "Marketing Manager", imgSrc: origAssets + "images/veronika-radobicka.jpg"},
-				{title: "Dominika Krullová", subtitle: "EXECUTIVE TEAM", text: "Project Manager", imgSrc: origAssets + "images/dominika-krullova.jpg"},
-				{title: "Viktória Jakubovičová", subtitle: "EXECUTIVE TEAM", text: "Relationship Manager", imgSrc: origAssets + "images/viktoria-jakubovicova.jpg"},
+				{title: "Grigor Ayrumyan", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Co-founder & Executive Director", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/grigor-ayrumyan.jpg"},
+				{title: "Slavomír Terezka", subtitle: "BOARD MEMBER", text: "Co-founder", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/slavomir-terezka.jpg"},
+				{title: "Roman Sekerka", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Co-founder & Tech Garant pre HybridLab a AppsLab", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/roman-sekerka.jpg"},
+				{title: "Ján Kožlej", subtitle: "BOARD MEMBER & EXECUTIVE TEAM", text: "Tech Garant pre GamesLab", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/jan-kozlej.jpg"},
+				{title: "Veronika Radobická", subtitle: "EXECUTIVE TEAM", text: "Marketing Manager", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/veronika-radobicka.jpg"},
+				{title: "Dominika Krullová", subtitle: "EXECUTIVE TEAM", text: "Project Manager", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/dominika-krullova.jpg"},
+				{title: "Viktória Jakubovičová", subtitle: "EXECUTIVE TEAM", text: "Relationship Manager", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/viktoria-jakubovicova.jpg"},
 			],
 
-			whoImgs: [origAssets + "images/wezeo.svg", origAssets + "images/power.svg", origAssets + "images/siemens.svg", origAssets + "images/spsit.svg", origAssets + "images/spse.svg", origAssets + "images/hemisfera.svg"],
+			whoImgs: [process.env.VUE_APP_ORIG_ASSETS + "images/wezeo.svg", process.env.VUE_APP_ORIG_ASSETS + "images/power.svg", process.env.VUE_APP_ORIG_ASSETS + "images/siemens.svg", process.env.VUE_APP_ORIG_ASSETS + "images/spsit.svg", process.env.VUE_APP_ORIG_ASSETS + "images/spse.svg", process.env.VUE_APP_ORIG_ASSETS + "images/hemisfera.svg"],
 
 			podcastPlatforms: [
-				{href: "https://www.youtube.com/c/Modern%C3%A1%C5%A1kola", imgSrc: origAssets + "images/youtube-color.svg"}, 
-				{href: "https://open.spotify.com/show/7x8hnF8aX7LYbPsU155dJs", imgSrc: origAssets + "images/spotify.svg"}, 
-				{hred: "https://podcasts.apple.com/sk/podcast/modern%C3%A1-%C5%A1kola/id1594689894", imgSrc: origAssets + "images/podcast.svg"}, 
-				{href: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL21vZGVybmFza29sYS9mZWVkLnhtbA", imgSrc: origAssets + "images/google.svg"}
+				{href: "https://www.youtube.com/c/Modern%C3%A1%C5%A1kola", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/youtube-color.svg"}, 
+				{href: "https://open.spotify.com/show/7x8hnF8aX7LYbPsU155dJs", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/spotify.svg"}, 
+				{hred: "https://podcasts.apple.com/sk/podcast/modern%C3%A1-%C5%A1kola/id1594689894", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/podcast.svg"}, 
+				{href: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL21vZGVybmFza29sYS9mZWVkLnhtbA", imgSrc: process.env.VUE_APP_ORIG_ASSETS + "images/google.svg"}
 			],
 
-			supporters: [...Array(10)].map((obj, i) => origAssets + "images/support" + ++i + ".svg")
+			supporters: [...Array(10)].map((obj, i) => process.env.VUE_APP_ORIG_ASSETS + "images/support" + (i+1) + ".svg")
 		}
 	}
 }
@@ -287,7 +274,7 @@ export default {
 
 <style lang="scss">
 #vision {
-	.cell-variants {
+	.home-cell-variants {
 		&:nth-child(1n) {
 			color: #5b94d7;
 			background-color: rgba(221, 236, 251, 0.4);
@@ -315,7 +302,7 @@ section .container.border-bot-blue {
 }
 
 #want {
-	p.display-3 {
+	p.fw-bold.display-3 {
 		top: -0.75em;
 	}
 }
@@ -333,7 +320,7 @@ section .container.border-bot-blue {
 
 #special {
 	@media (min-width: 992px) {
-		.col-lg-4 {
+		div.col-lg-4 {
 			max-width: 28%;
 		}
 	}

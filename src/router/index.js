@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import GeneralPage from "../views/GeneralPage.vue";
 import HomeView from "../views/HomeView.vue";
 import LabsView from "../views/LabsView.vue";
 import ForTeachersView from "../views/ForTeachersView.vue";
@@ -13,14 +14,20 @@ function route(path, component, name) {
 }
 
 const routes = [
-	route("", HomeView, "home"),
-	route("/openlaby/", LabsView),
-	route("/hybridlab/", HybridLab),
-	route("/gameslab/", GamesLab),
-	route("/appslab/", AppsLab),
-	route("/pre-ucitelov/", ForTeachersView),
-	route("/partneri/", PartnersView),
-	route("/moderna-skola/", ModernSchoolView),
+	{
+		path: '/',
+		component: GeneralPage,
+		children: [
+			route("", HomeView, "home"),
+			route("/openlaby/", LabsView),
+			route("/hybridlab/", HybridLab),
+			route("/gameslab/", GamesLab),
+			route("/appslab/", AppsLab),
+			route("/pre-ucitelov/", ForTeachersView),
+			route("/partneri/", PartnersView),
+			route("/moderna-skola/", ModernSchoolView)
+		]
+	}
 ]
 
 const router = createRouter({

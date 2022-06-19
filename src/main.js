@@ -6,78 +6,10 @@ import "./assets/scss/global.scss";
 
 import "bootstrap/dist/js/bootstrap.js";
 
-import ZMainNavbar from "@/components/ZMainNavbar.vue";
-import ASiteHeader from "@/components/ASiteHeader.vue";
-import ZPageFooter from "@/components/ZPageFooter.vue";
-import ZMainJumbotron from "@/components/ZMainJumbotron.vue";
-import ZGridSection from "@/components/layout/ZGridSection.vue";
+import GlobalMixins from "./globals.js";
 
-const app = createApp(App).use(router);
-const origAssets = "https://openlab.sk/wp-content/themes/wp-bootstrap-starter/assets/";
-
-app.mixin({
-	components: {ZMainNavbar, ASiteHeader, ZPageFooter, ZMainJumbotron, ZGridSection},
-
-	methods: {
-		hostOf: (url) => new URL(url).host,
-		gotoSite: (href) => location.href = href
-	},
-
-	data() {
-		return {
-			origAssets: origAssets,
-			innerWidth: window.innerWidth,
-			innerHeight: window.innerHeight,
-
-			footer: {
-				brandImg: origAssets + "images/openlab-logo.svg", 
-				brandTxt: "© 2022 Všetky práva vyhradené <b>OPENLAB, o.z.,</b>",
-				texts: ["IČO: 50764675", "Viedenská cesta 257, 805 01 Bratislava"],
-				links: "mailto:info@openlab.sk", 
-				contacts: [
-					{imgSrc: origAssets + "images/facebook.svg", href: "https://www.facebook.com/OpenLab.sk/"}, 
-					{imgSrc: origAssets + "images/linkedin.svg", href: "https://www.instagram.com/openlab.sk/?igshid=1xz2g75a3yzu1"},
-					{imgSrc: origAssets + "images/instagram.svg", href: "https://www.linkedin.com/company/openlab-sk/?trk=public_profile_topcard_current_company&amp;originalSubdomain=sk"},
-				],
-				shape: origAssets + "images/footer.svg"
-			},
-
-			nav: {
-				brand: {href: "#", imgSrc: origAssets + "images/openlab-logo.svg"},
-
-				items: [
-					{name: "Úvod", href: "/"},
-					{
-						name: "OpenLab",
-						href: "/openlaby",
-						dropdowns: [
-							{name: "HybridLab", href: "/hybridlab"},
-							{name: "GamesLab", href: "/gameslab"},
-							{name: "AppsLab", href: "/appslab"},
-						]
-					},
-					{name: "Pre učiteľov", href: "/pre-ucitelov"},
-					{name: "Partneri", href: "/partneri"},
-					{name: "Moderná škola", href: "/moderna-skola"},
-				],
-
-				btnText: "Pridajte sa k nám",
-				onBtnClicked: () => this.$router.push("/openlaby")
-			}
-		}
-	},
-
-	mounted() {
-		const self = this;
-		window.addEventListener('resize', e => {
-			self.innerWidth = window.innerWidth
-			self.innerWidth = window.innerWidth
-		});
-	}
-});
+const app = createApp(App).use(router).mixin(GlobalMixins);
 
 router.isReady().then(() => {
-	//var secured = "s";
-	//app.config.globalProperties.beIp = decodeURIComponent("http" + secured + "%3A%2F%2F178.143.44.187%3A1089%2F");
 	app.mount("#app");
 });
